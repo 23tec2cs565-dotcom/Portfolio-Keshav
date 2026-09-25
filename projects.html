@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Projects | Keshav Sain</title>
+    <meta name="description" content="Explore Keshav Sain's engineering projects in AI, Machine Learning, Data Analytics, and Full-Stack Development.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Satisfy&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== PRELOADER ========== -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring ring-2"></div>
+            <span class="loader-text">KS</span>
+        </div>
+    </div>
+
+    <!-- ========== CURSOR GLOW ========== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ========== DECORATIVE WARM BLOBS ========== -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ========== FLOATING TOP NAV PILL ========== -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-pill-box">
+            <a href="index.html" class="nav-logo">&lt;Keshav<span>.</span>/&gt;</a>
+            <div class="nav-links">
+                <a href="index.html" class="pill-nav-link">HOME</a>
+                <a href="about.html" class="pill-nav-link">ABOUT</a>
+                <a href="skills.html" class="pill-nav-link">SKILLS</a>
+                <a href="projects.html" class="pill-nav-link current">WORK</a>
+                <a href="experience.html" class="pill-nav-link">EXPERIENCE</a>
+                <a href="certifications.html" class="pill-nav-link">CERTS</a>
+                <a href="contact.html" class="pill-nav-link">CONTACT</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link">HOME</a>
+            <a href="about.html" class="mobile-nav-link">ABOUT</a>
+            <a href="skills.html" class="mobile-nav-link">SKILLS</a>
+            <a href="projects.html" class="mobile-nav-link current">WORK</a>
+            <a href="experience.html" class="mobile-nav-link">EXPERIENCE</a>
+            <a href="certifications.html" class="mobile-nav-link">CERTS</a>
+            <a href="contact.html" class="mobile-nav-link">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- ========== PAGE HERO BANNER ========== -->
+    <section class="page-hero reveal">
+        <div class="dot-grid-overlay"></div>
+        <div class="hero-content">
+            <span class="bg-number">04</span>
+            <span class="section-subtitle"><i class="fas fa-rocket"></i> SELECTED WORK &amp; EXPERIMENTS</span>
+            <h1 class="page-title">Featured <span>Projects</span></h1>
+            <p class="page-subtitle">A showcase of production-ready systems, automation platforms, machine learning architectures, and analytics dashboards.</p>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS CONTENT ========== -->
+    <section class="projects-section" style="padding: 4rem 0;">
+        <div class="container">
+            
+            <!-- Category Filter Tabs -->
+            <div class="project-filters reveal">
+                <button class="filter-btn active" data-filter="all">All Projects (7)</button>
+                <button class="filter-btn" data-filter="ai-ml">AI &amp; Machine Learning</button>
+                <button class="filter-btn" data-filter="data">Data Science &amp; Analytics</button>
+                <button class="filter-btn" data-filter="full-stack">Full-Stack &amp; Automation</button>
+            </div>
+
+            <!-- Featured Flagship Project -->
+            <div class="featured-project reveal" data-category="ai-ml full-stack" style="margin-bottom: 4rem;">
+                <div class="featured-content">
+                    <span class="featured-tag"><i class="fas fa-star"></i> FLAGSHIP PROJECT</span>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="skill-icon-wrap" style="width: 45px; height: 45px; font-size: 1.25rem;">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h2 style="font-size: 2rem; color: var(--text-primary); margin: 0;">AI SEO Automation Platform</h2>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Built an end-to-end autonomous audit and optimization system using n8n and advanced LLM APIs. The platform crawls websites, diagnoses technical indexing bottlenecks, generates semantic content recommendations, and yielded a <strong style="color: var(--accent-coral);">200% increase in organic search impressions</strong>.
+                    </p>
+                    <div class="project-tech" style="margin-bottom: 2rem;">
+                        <span>Python</span>
+                        <span>n8n Workflows</span>
+                        <span>OpenAI API</span>
+                        <span>FastAPI</span>
+                        <span>Technical SEO</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" class="btn-warm-filled" style="padding: 0.75rem 1.75rem;">
+                            <i class="fab fa-github"></i> Inspect Source
+                        </a>
+                        <a href="contact.html" class="btn-warm-outlined" style="padding: 0.75rem 1.75rem;">
+                            <i class="fas fa-comments"></i> Inquire About Architecture
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 Project Cards Grid -->
+            <div class="projects-grid">
+                
+                <!-- Project 01 -->
+                <div class="project-card reveal" data-tilt data-category="ai-ml">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">01</span>
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <h3 class="project-title">LLM Customer Support Chatbot</h3>
+                        <p class="project-desc">
+                            Retrieval-Augmented Generation (RAG) conversational agent engineered with LangChain and vector embeddings for contextual, hallucination-resistant customer troubleshooting.
+                        </p>
+                        <div class="project-tech">
+                            <span>LangChain</span>
+                            <span>OpenAI</span>
+                            <span>RAG</span>
+                            <span>FastAPI</span>
+                            <span>ChromaDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 02 -->
+                <div class="project-card reveal" data-tilt data-category="ai-ml full-stack">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">02</span>
+                        <div class="project-icon"><i class="fas fa-users-cog"></i></div>
+                        <h3 class="project-title">Automated Leads Generation Engine</h3>
+                        <p class="project-desc">
+                            Intelligent B2B prospect discovery pipeline that identified and validated 2,500+ high-value business leads via automated web scraping, domain filtering, and scoring.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>REST APIs</span>
+                            <span>SQL</span>
+                            <span>Data Wrangling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 03 -->
+                <div class="project-card reveal" data-tilt data-category="ai-ml data">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">03</span>
+                        <div class="project-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="project-title">Graph Network Analysis Model</h3>
+                        <p class="project-desc">
+                            Machine learning topological graph network analyzer applying community detection algorithms and centrality measures to uncover hidden structural clusters.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>NetworkX</span>
+                            <span>Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 04 -->
+                <div class="project-card reveal" data-tilt data-category="data">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">04</span>
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="project-title">OLA Ride Data Intelligence Dashboard</h3>
+                        <p class="project-desc">
+                            Executive Power BI dashboard visualizing complex ride-hailing metrics, dynamic pricing trends, demand heatmaps, and rider churn drivers.
+                        </p>
+                        <div class="project-tech">
+                            <span>Power BI</span>
+                            <span>DAX</span>
+                            <span>SQL Analytics</span>
+                            <span>Data Modeling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 05 -->
+                <div class="project-card reveal" data-tilt data-category="ai-ml data">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">05</span>
+                        <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3 class="project-title">Health Insurance Cross-Sell Predictor</h3>
+                        <p class="project-desc">
+                            End-to-end predictive classification model paired with interactive KPI monitoring to accurately forecast vehicle insurance adoption among health insurance holders.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Power BI</span>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 06 -->
+                <div class="project-card reveal" data-tilt data-category="full-stack">
+                    <div class="project-card-glow"></div>
+                    <div class="project-content">
+                        <span class="project-number">06</span>
+                        <div class="project-icon"><i class="fas fa-boxes-stacked"></i></div>
+                        <h3 class="project-title">Enterprise Stock Management System</h3>
+                        <p class="project-desc">
+                            Robust inventory accounting software with ACID-compliant MySQL database routines, automated ledger reconciliation, and real-time replenishment alerts.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>MySQL</span>
+                            <span>CRUD Architecture</span>
+                            <span>Database Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GitHub Callout Card -->
+            <div class="stat-card reveal" style="margin-top: 4rem; text-align: center; padding: 3rem;">
+                <div class="skill-icon-wrap" style="margin: 0 auto 1.5rem; width: 60px; height: 60px; font-size: 2rem;">
+                    <i class="fab fa-github"></i>
+                </div>
+                <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 0.75rem;">Explore More Repositories</h3>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
+                    Browse my active GitHub repositories to inspect commit histories, experimental scripts, open-source pull requests, and ongoing AI prototypes.
+                </p>
+                <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" class="btn-warm-filled">
+                    <span>Visit @Keshavsain1 on GitHub</span>
+                    <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== MARQUEE TICKER ========== -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="footer-logo">&lt;Keshav<span>Sain</span>/&gt;</a>
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="skills.html">SKILLS</a>
+                    <a href="projects.html">WORK</a>
+                    <a href="experience.html">EXPERIENCE</a>
+                    <a href="certifications.html">CERTS</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:Keshavsain.jpr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">Designed &amp; Built with <i class="fas fa-heart"></i> by Keshav Sain</p>
+                <p class="footer-copyright">&copy; 2026 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BACK TO TOP & TOAST ========== -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Message sent successfully! I'll get back to you soon.</span>
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

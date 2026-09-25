@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills &amp; Technologies | Keshav Sain</title>
+    <meta name="description" content="Keshav Sain's technical skills, proficiencies, programming languages, and AI/ML stack.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Satisfy&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== PRELOADER ========== -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring ring-2"></div>
+            <span class="loader-text">KS</span>
+        </div>
+    </div>
+
+    <!-- ========== CURSOR GLOW ========== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ========== DECORATIVE WARM BLOBS ========== -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ========== FLOATING TOP NAV PILL ========== -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-pill-box">
+            <a href="index.html" class="nav-logo">&lt;Keshav<span>.</span>/&gt;</a>
+            <div class="nav-links">
+                <a href="index.html" class="pill-nav-link">HOME</a>
+                <a href="about.html" class="pill-nav-link">ABOUT</a>
+                <a href="skills.html" class="pill-nav-link current">SKILLS</a>
+                <a href="projects.html" class="pill-nav-link">WORK</a>
+                <a href="experience.html" class="pill-nav-link">EXPERIENCE</a>
+                <a href="certifications.html" class="pill-nav-link">CERTS</a>
+                <a href="contact.html" class="pill-nav-link">CONTACT</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link">HOME</a>
+            <a href="about.html" class="mobile-nav-link">ABOUT</a>
+            <a href="skills.html" class="mobile-nav-link current">SKILLS</a>
+            <a href="projects.html" class="mobile-nav-link">WORK</a>
+            <a href="experience.html" class="mobile-nav-link">EXPERIENCE</a>
+            <a href="certifications.html" class="mobile-nav-link">CERTS</a>
+            <a href="contact.html" class="mobile-nav-link">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- ========== PAGE HERO BANNER ========== -->
+    <section class="page-hero reveal">
+        <div class="dot-grid-overlay"></div>
+        <div class="hero-content">
+            <span class="bg-number">02</span>
+            <span class="section-subtitle"><i class="fas fa-layer-group"></i> TECHNICAL TOOLKIT</span>
+            <h1 class="page-title">Skills &amp; <span>Technologies</span></h1>
+            <p class="page-subtitle">A comprehensive breakdown of my engineering capabilities across Artificial Intelligence, Data Science, and Scalable Full-Stack Engineering.</p>
+        </div>
+    </section>
+
+    <!-- ========== PROFICIENCY OVERVIEW (SKILL BARS + ORBIT) ========== -->
+    <section class="skills-overview-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div class="about-grid" style="align-items: center;">
+                <!-- Left: Skill Bars -->
+                <div class="skill-bars-container reveal">
+                    <span class="section-subtitle">CORE COMPETENCIES</span>
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Engineered Strengths</h2>
+                    
+                    <div class="skill-bars">
+                        <div class="skill-item" style="margin-bottom: 1.5rem;">
+                            <div class="skill-info">
+                                <span><i class="fab fa-python" style="color: var(--accent-coral); margin-right: 0.5rem;"></i> Python Ecosystem</span>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item" style="margin-bottom: 1.5rem;">
+                            <div class="skill-info">
+                                <span><i class="fas fa-brain" style="color: var(--accent-coral); margin-right: 0.5rem;"></i> AI &amp; Machine Learning (LangChain, RAG)</span>
+                                <span class="skill-pct">88%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="88"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item" style="margin-bottom: 1.5rem;">
+                            <div class="skill-info">
+                                <span><i class="fas fa-chart-line" style="color: var(--accent-coral); margin-right: 0.5rem;"></i> Data Science &amp; Business Intelligence</span>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="90"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item" style="margin-bottom: 1.5rem;">
+                            <div class="skill-info">
+                                <span><i class="fas fa-database" style="color: var(--accent-coral); margin-right: 0.5rem;"></i> SQL &amp; Relational Databases</span>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Creative Tech Stack Orbit & Currently Exploring -->
+                <div class="stat-card reveal" style="padding: 2.5rem; text-align: left;">
+                    <span class="section-subtitle"><i class="fas fa-satellite-dish"></i> ACTIVE EXPLORATION</span>
+                    <h3 style="font-size: 1.5rem; margin: 1rem 0; color: var(--text-primary);">Frontier &amp; GenAI Stack</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
+                        Actively developing and fine-tuning autonomous AI agents, multi-modal workflows, and advanced vector search architectures.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
+                        <span class="skill-tag" style="background: var(--bg-card); border-color: var(--accent-coral); color: var(--accent-coral); font-weight: 600;">
+                            <i class="fas fa-robot"></i> Autonomous Agents
+                        </span>
+                        <span class="skill-tag" style="background: var(--bg-card); border-color: var(--accent-coral); color: var(--accent-coral); font-weight: 600;">
+                            <i class="fas fa-bolt"></i> Gemini API
+                        </span>
+                        <span class="skill-tag" style="background: var(--bg-card); border-color: var(--accent-coral); color: var(--accent-coral); font-weight: 600;">
+                            <i class="fas fa-project-diagram"></i> Hybrid RAG
+                        </span>
+                        <span class="skill-tag" style="background: var(--bg-card); border-color: var(--accent-coral); color: var(--accent-coral); font-weight: 600;">
+                            <i class="fas fa-cubes"></i> Vector DBs (Chroma/Pinecone)
+                        </span>
+                        <span class="skill-tag" style="background: var(--bg-card); border-color: var(--accent-coral); color: var(--accent-coral); font-weight: 600;">
+                            <i class="fas fa-cogs"></i> n8n Automation
+                        </span>
+                    </div>
+
+                    <div style="background: var(--bg-base-2); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border);">
+                        <h4 style="font-size: 0.95rem; color: var(--accent-coral); margin-bottom: 0.5rem;">
+                            <i class="fas fa-lightbulb"></i> Engineering Philosophy
+                        </h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">
+                            "Code for clarity, design for resilience, and always automate what is repetitive so human creativity can thrive."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 7 TECHNICAL DOMAINS GRID ========== -->
+    <section class="technical-domains-section" style="padding: 4rem 0; background: var(--bg-section-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">COMPREHENSIVE DIRECTORY</span>
+                <h2 class="section-title">Technical Domains</h2>
+                <p class="section-desc">Modular skill categorizations spanning machine learning algorithms, full-stack tools, and data infrastructure.</p>
+            </div>
+
+            <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                
+                <!-- Category 1: Programming Languages -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: AI & Machine Learning -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-brain"></i></div>
+                        <h3>AI &amp; Machine Learning</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">RAG Pipelines</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Vector DBs</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Web & Backend -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-server"></i></div>
+                        <h3>Web &amp; Backend</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">JSON / Webhooks</span>
+                        <span class="skill-tag">Frontend Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Data Science & Analytics -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Data Science &amp; Analytics</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Advanced Excel</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: Databases -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-database"></i></div>
+                        <h3>Databases &amp; Storage</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">DBMS Concepts</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Schema Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Category 6: DevOps & Tools -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-tools"></i></div>
+                        <h3>DevOps &amp; Automation</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">n8n Automation</span>
+                        <span class="skill-tag">CI/CD Workflows</span>
+                    </div>
+                </div>
+
+                <!-- Category 7: Core Concepts -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-title">
+                        <div class="skill-icon-wrap"><i class="fas fa-cogs"></i></div>
+                        <h3>Core Concepts</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <span class="skill-tag">Data Structures &amp; Algorithms</span>
+                        <span class="skill-tag">Object-Oriented Programming (OOP)</span>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">ETL Data Pipelining</span>
+                        <span class="skill-tag">Technical SEO Architecture</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MARQUEE TICKER ========== -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="footer-logo">&lt;Keshav<span>Sain</span>/&gt;</a>
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="skills.html">SKILLS</a>
+                    <a href="projects.html">WORK</a>
+                    <a href="experience.html">EXPERIENCE</a>
+                    <a href="certifications.html">CERTS</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:Keshavsain.jpr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">Designed &amp; Built with <i class="fas fa-heart"></i> by Keshav Sain</p>
+                <p class="footer-copyright">&copy; 2026 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BACK TO TOP & TOAST ========== -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Message sent successfully! I'll get back to you soon.</span>
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

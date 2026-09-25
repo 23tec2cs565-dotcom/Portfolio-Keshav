@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Keshav Sain</title>
+    <meta name="description" content="About Keshav Sain - B.Tech CSE (AI & Data Science) student, researcher, and engineer.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Satisfy&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== PRELOADER ========== -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring ring-2"></div>
+            <span class="loader-text">KS</span>
+        </div>
+    </div>
+
+    <!-- ========== CURSOR GLOW ========== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ========== DECORATIVE WARM BLOBS ========== -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ========== FLOATING TOP NAV PILL ========== -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-pill-box">
+            <a href="index.html" class="nav-logo">&lt;Keshav<span>.</span>/&gt;</a>
+            <div class="nav-links">
+                <a href="index.html" class="pill-nav-link">HOME</a>
+                <a href="about.html" class="pill-nav-link current">ABOUT</a>
+                <a href="skills.html" class="pill-nav-link">SKILLS</a>
+                <a href="projects.html" class="pill-nav-link">WORK</a>
+                <a href="experience.html" class="pill-nav-link">EXPERIENCE</a>
+                <a href="certifications.html" class="pill-nav-link">CERTS</a>
+                <a href="contact.html" class="pill-nav-link">CONTACT</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link">HOME</a>
+            <a href="about.html" class="mobile-nav-link current">ABOUT</a>
+            <a href="skills.html" class="mobile-nav-link">SKILLS</a>
+            <a href="projects.html" class="mobile-nav-link">WORK</a>
+            <a href="experience.html" class="mobile-nav-link">EXPERIENCE</a>
+            <a href="certifications.html" class="mobile-nav-link">CERTS</a>
+            <a href="contact.html" class="mobile-nav-link">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- ========== PAGE HERO BANNER ========== -->
+    <section class="page-hero reveal">
+        <div class="dot-grid-overlay"></div>
+        <div class="hero-content">
+            <span class="bg-number">01</span>
+            <span class="section-subtitle"><i class="fas fa-user-astronaut"></i> BIOGRAPHY &amp; VISION</span>
+            <h1 class="page-title">About <span>Me</span></h1>
+            <p class="page-subtitle">Passionate about Artificial Intelligence, Data Science, and creating high-impact software that solves real-world challenges.</p>
+        </div>
+    </section>
+
+    <!-- ========== STATS BAR ========== -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-bar-grid">
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="4" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Internships Completed</div>
+                </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="7" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Production Projects</div>
+                </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="6" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Certifications</div>
+                </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="8.0" data-suffix="" data-decimal="true">0</div>
+                    <div class="stats-bar-label">Current CGPA Score</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAIN ABOUT SECTION ========== -->
+    <section class="about-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left: Bio & Personal Info -->
+                <div class="about-text reveal">
+                    <div class="about-intro-tag">
+                        <i class="fas fa-terminal"></i> whoami
+                    </div>
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Architecting Intelligent Realities</h2>
+                    
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                        I'm a <strong style="color: var(--text-primary);">B.Tech Computer Science (AI &amp; Data Science)</strong> student at 
+                        <strong style="color: var(--text-primary);">Vivekananda Global University, Jaipur</strong>, dedicated to engineering transformative machine learning systems and reliable web applications.
+                    </p>
+                    
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                        With proven experience in AI automation, full-stack development, and predictive modeling, I've built lead-generation engines that produced <span class="highlight">2,500+ qualified business leads</span>, designed LLM customer support chatbots, and architected dynamic data visualization platforms that directly power strategic executive decisions.
+                    </p>
+                    
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+                        I specialize in <strong style="color: var(--text-primary);">LangChain, Retrieval-Augmented Generation (RAG), and Large Language Models</strong>. When away from the terminal, I actively review emerging AI research papers, build experimental side projects, and contribute to open-source software.
+                    </p>
+
+                    <!-- Info Grid -->
+                    <div class="info-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="info-item" style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border);">
+                            <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="info-content">
+                                <h4>Education</h4>
+                                <span>B.Tech CSE (AI &amp; DS)</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border);">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-content">
+                                <h4>Location</h4>
+                                <span>Jaipur, Rajasthan, India</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border);">
+                            <div class="info-icon"><i class="fas fa-university"></i></div>
+                            <div class="info-content">
+                                <h4>University</h4>
+                                <span>Vivekananda Global Univ</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border);">
+                            <div class="info-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="info-content">
+                                <h4>Graduation</h4>
+                                <span>Batch of 2027</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Stats & Highlights -->
+                <div class="about-stats reveal">
+                    <div class="stat-card">
+                        <div class="stat-num">
+                            <span class="stat-number" data-target="4" data-suffix="+">0</span>
+                        </div>
+                        <div class="stat-text">Internships</div>
+                        <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">Hands-on industry experience across AI, SEO, and Full-Stack.</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-num">
+                            <span class="stat-number" data-target="6" data-suffix="+">0</span>
+                        </div>
+                        <div class="stat-text">Certifications</div>
+                        <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">IBM, Google, EXIN, University of Illinois accredited.</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-num">
+                            <span class="stat-number" data-target="7" data-suffix="+">0</span>
+                        </div>
+                        <div class="stat-text">Projects Built</div>
+                        <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">From LLM applications to data science dashboards.</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-num">
+                            <span class="stat-number" data-target="8.0" data-suffix="" data-decimal="true">0</span>
+                        </div>
+                        <div class="stat-text">CGPA Score</div>
+                        <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">Consistent academic performance in computer science.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ACADEMIC JOURNEY ========== -->
+    <section class="journey-section" style="padding: 4rem 0; background: var(--bg-section-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">MILESTONES</span>
+                <h2 class="section-title">My Journey</h2>
+                <p class="section-desc">Key academic foundations shaping my engineering perspective.</p>
+            </div>
+
+            <div class="timeline" style="max-width: 800px; margin: 0 auto;">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <div class="dot-ping"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 — 2027</span>
+                        <h3 class="timeline-title">B.Tech Computer Science (AI &amp; Data Science)</h3>
+                        <h4 class="timeline-company"><i class="fas fa-university"></i> Vivekananda Global University, Jaipur</h4>
+                        <p class="timeline-desc">
+                            In-depth exploration of core computer science, algorithm design, probability and linear algebra, neural network architectures, and distributed systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 — 2023</span>
+                        <h3 class="timeline-title">Senior Secondary Education (PCM &amp; CS)</h3>
+                        <h4 class="timeline-company"><i class="fas fa-school"></i> High School Education</h4>
+                        <p class="timeline-desc">
+                            Focused on Advanced Mathematics, Physics, and foundational Computer Science, building the rigorous analytical mindset required for machine learning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT DRIVES ME (3 CARDS) ========== -->
+    <section class="drives-me-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">CORE VALUES</span>
+                <h2 class="section-title">What Drives Me</h2>
+                <p class="section-desc">The guiding principles behind every project I architect.</p>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation First</h3>
+                    <p>Constantly seeking novel methodologies to bridge theoretical AI research with pragmatic, user-focused production applications.</p>
+                </div>
+
+                <div class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Precision Problem Solving</h3>
+                    <p>Deconstructing ambiguous business hurdles into modular, deterministic, and computationally elegant workflows.</p>
+                </div>
+
+                <div class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-infinity"></i></div>
+                    <h3>Continuous Evolution</h3>
+                    <p>Deep commitment to lifetime learning, staying ahead of rapid advancements in foundation models, LLMs, and modern infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MARQUEE TICKER ========== -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-brain"></i> AI ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-chart-pie"></i> DATA SCIENTIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-robot"></i> ML ENGINEER</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fas fa-search-dollar"></i> SEO SPECIALIST</span><span class="marquee-dot">◆</span>
+                <span class="marquee-item"><i class="fab fa-python"></i> PYTHON DEVELOPER</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="footer-logo">&lt;Keshav<span>Sain</span>/&gt;</a>
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="skills.html">SKILLS</a>
+                    <a href="projects.html">WORK</a>
+                    <a href="experience.html">EXPERIENCE</a>
+                    <a href="certifications.html">CERTS</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:Keshavsain.jpr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">Designed &amp; Built with <i class="fas fa-heart"></i> by Keshav Sain</p>
+                <p class="footer-copyright">&copy; 2026 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BACK TO TOP & TOAST ========== -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Message sent successfully! I'll get back to you soon.</span>
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

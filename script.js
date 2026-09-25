@@ -1,7 +1,7 @@
 /* ============================================================
-   KESHAV SAIN — PREMIUM PORTFOLIO v2
-   JavaScript: Enhanced animations, cursor glow, skill bars,
-   particles, tilt, counters, and more
+   KESHAV SAIN — PREMIUM PORTFOLIO v3 (Multi-Page + Warm Theme)
+   JavaScript: Animations, character tracking, counters,
+   scroll reveal, nav, particles, tilt, and more
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,46 +53,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------
-    // 2. SMOOTH SCROLL + ACTIVE NAV
+    // 2. SMOOTH SCROLL FOR IN-PAGE LINKS + ACTIVE NAV
     // --------------------------------------------------------
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .pill-nav-link');
 
+    // Only intercept hash links (in-page anchors), not page links
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-                const navContainer = document.getElementById('navLinks');
+            const href = this.getAttribute('href');
+            // Only smooth-scroll for hash-only links like #about
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                // Close mobile menu if open
                 const hamburger = document.getElementById('hamburger');
-                if (navContainer && navContainer.classList.contains('active')) {
-                    navContainer.classList.remove('active');
+                const navPillBox = document.querySelector('.nav-pill-box');
+                if (hamburger && hamburger.classList.contains('active')) {
                     hamburger.classList.remove('active');
+                    if (navPillBox) navPillBox.classList.remove('mobile-open');
                 }
             }
+            // For regular page links (about.html, etc.), let default navigation happen
         });
     });
-
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach((link) => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        },
-        { rootMargin: '-30% 0px -70% 0px' }
-    );
-
-    sections.forEach((s) => sectionObserver.observe(s));
 
     // --------------------------------------------------------
     // 3. SCROLL REVEAL WITH STAGGER
@@ -103,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         (entries, observer) => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    // Stagger siblings
                     const parent = entry.target.parentElement;
                     if (parent) {
                         const siblings = Array.from(parent.querySelectorAll(':scope > .reveal'));
@@ -123,65 +108,79 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach((el) => revealObserver.observe(el));
 
     // --------------------------------------------------------
-    // 4. NAVBAR BEHAVIOR
+    // 4. NAVBAR SCROLL BEHAVIOR
     // --------------------------------------------------------
-    const navbar = document.getElementById('navbar');
-    let lastScrollY = 0;
+    const floatingNav = document.getElementById('floatingNav');
 
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
+    if (floatingNav) {
+        let lastScrollY = 0;
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
 
-        if (scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+            if (scrollY > 100) {
+                floatingNav.classList.add('scrolled');
+            } else {
+                floatingNav.classList.remove('scrolled');
+            }
 
-        if (scrollY > lastScrollY && scrollY > 200) {
-            navbar.classList.add('hidden');
-        } else {
-            navbar.classList.remove('hidden');
-        }
-
-        lastScrollY = scrollY <= 0 ? 0 : scrollY;
-    });
-
-    // --------------------------------------------------------
-    // 5. MOBILE MENU
-    // --------------------------------------------------------
-    const hamburger = document.getElementById('hamburger');
-    const navLinksContainer = document.getElementById('navLinks');
-
-    if (hamburger && navLinksContainer) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinksContainer.classList.toggle('active');
+            lastScrollY = scrollY <= 0 ? 0 : scrollY;
         });
     }
 
     // --------------------------------------------------------
-    // 6. COUNTER ANIMATION
+    // 5. MOBILE HAMBURGER MENU & OVERLAY
     // --------------------------------------------------------
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let countersStarted = false;
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn') || document.getElementById('hamburger');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const navPillBox = document.querySelector('.nav-pill-box');
 
-    const counterObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting && !countersStarted) {
-                    countersStarted = true;
-                    animateCounters();
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            if (mobileNavOverlay) {
+                mobileNavOverlay.classList.toggle('active');
+            }
+            if (navPillBox) {
+                navPillBox.classList.toggle('mobile-open');
+            }
+            // Toggle hamburger icon if it's an <i>
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenuBtn.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+
+        // Close mobile overlay when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .pill-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                if (mobileNavOverlay) mobileNavOverlay.classList.remove('active');
+                if (navPillBox) navPillBox.classList.remove('mobile-open');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             });
-        },
-        { threshold: 0.3 }
-    );
+        });
+    }
 
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) counterObserver.observe(aboutSection);
-
-    function animateCounters() {
-        statNumbers.forEach((stat) => {
+    // --------------------------------------------------------
+    // 6. COUNTER ANIMATION (for stat-number, stats-bar-number, counter)
+    // --------------------------------------------------------
+    const statNumbers = document.querySelectorAll('.stat-number, .stats-bar-number, .counter');
+    
+    function animateCounters(elements) {
+        elements.forEach((stat) => {
+            if (stat.dataset.animated) return;
+            stat.dataset.animated = 'true';
+            
             const target = parseFloat(stat.getAttribute('data-target'));
             const suffix = stat.getAttribute('data-suffix') || '';
             const isDecimal = stat.getAttribute('data-decimal') === 'true';
@@ -201,6 +200,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }, stepTime);
         });
     }
+
+    // Observe any section containing counters
+    const counterObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number, .stats-bar-number');
+                    if (counters.length > 0) {
+                        animateCounters(counters);
+                    }
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+
+    // Observe all sections that might have counters
+    document.querySelectorAll('section, .stats-bar, .highlights-section').forEach(section => {
+        if (section.querySelector('.stat-number, .stats-bar-number')) {
+            counterObserver.observe(section);
+        }
+    });
 
     // --------------------------------------------------------
     // 7. SKILL BAR ANIMATION
@@ -227,9 +248,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const skillsSection = document.getElementById('skills');
     if (skillsSection) skillBarObserver.observe(skillsSection);
+    // Also observe any parent of skill bars
+    const skillBarsContainer = document.querySelector('.skill-bars');
+    if (skillBarsContainer && !skillsSection) {
+        skillBarObserver.observe(skillBarsContainer.closest('section') || skillBarsContainer);
+    }
 
     // --------------------------------------------------------
-    // 8. PARTICLE BACKGROUND
+    // 8. PARTICLE BACKGROUND (Warm theme version)
     // --------------------------------------------------------
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
@@ -258,16 +284,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
                 const colors = [
-                    '0, 212, 255',    // blue
-                    '123, 47, 247',   // purple
-                    '255, 45, 170',   // pink
-                    '255, 215, 0',    // gold
+                    '232, 115, 74',    // coral
+                    '244, 165, 116',   // peach
+                    '200, 155, 60',    // gold
+                    '212, 117, 109',   // dusty rose
                 ];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.alpha = Math.random() * 0.4 + 0.1;
+                this.alpha = Math.random() * 0.3 + 0.05;
             }
 
             update() {
@@ -287,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function initParticles() {
             particles = [];
-            const count = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 100);
+            const count = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 80);
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle());
             }
@@ -300,9 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const dy = particles[a].y - particles[b].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 140) {
-                        const opacity = (1 - dist / 140) * 0.12;
-                        ctx.strokeStyle = `rgba(123, 47, 247, ${opacity})`;
-                        ctx.lineWidth = 0.6;
+                        const opacity = (1 - dist / 140) * 0.08;
+                        ctx.strokeStyle = `rgba(200, 155, 60, ${opacity})`;
+                        ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
                         ctx.lineTo(particles[b].x, particles[b].y);
@@ -323,7 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initParticles();
         animateParticles();
 
-        // Pause when hero not visible
         const heroEl = document.getElementById('hero');
         const particleObserver = new IntersectionObserver(
             (entries) => {
@@ -343,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------
-    // 9. CURSOR GLOW (Desktop only)
+    // 9. CURSOR GLOW (Desktop only — warm theme)
     // --------------------------------------------------------
     const cursorGlow = document.getElementById('cursorGlow');
     if (cursorGlow && window.matchMedia('(min-width: 769px)').matches) {
@@ -356,7 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function updateCursorGlow() {
-            // Smooth lerp
             glowX += (mouseX - glowX) * 0.08;
             glowY += (mouseY - glowY) * 0.08;
             cursorGlow.style.left = glowX + 'px';
@@ -385,7 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
             card.style.transition = 'box-shadow 0.3s ease';
 
-            // Move internal glow
             const glow = card.querySelector('.project-card-glow');
             if (glow) {
                 glow.style.left = `${x - card.offsetWidth}px`;
@@ -458,10 +481,205 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // --------------------------------------------------------
+    // 14. PROJECT FILTER TABS (Projects Page)
+    // --------------------------------------------------------
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+    if (filterBtns.length > 0 && projectCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = '';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        requestAnimationFrame(() => {
+                            card.style.transition = 'all 0.4s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 400);
+                    }
+                });
+            });
+        });
+    }
+
+    // --------------------------------------------------------
+    // 15. 60 FPS ZERO-GHOSTING CURSOR-TRACKING CHARACTER ENGINE
+    // Preloads 64 WebP frames + center.webp, shortest-path lerp,
+    // deadzone eye contact, 100% opacity crisp rendering
+    // --------------------------------------------------------
+    const characterCanvas = document.getElementById('characterCanvas');
+    if (characterCanvas) {
+        const ctx = characterCanvas.getContext('2d', { alpha: false });
+        const TOTAL_FRAMES = 64;
+        const frames = [];
+        let centerFrame = null;
+        let loadedCount = 0;
+        let isReady = false;
+
+        // Smooth state variables
+        let targetAngle = 0;
+        let currentAngle = 0;
+        let targetIsCenter = true;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        const telemetryEl = document.getElementById('charAngleDisplay');
+        const loaderEl = document.getElementById('characterLoader');
+
+        // Preload center neutral frame
+        const imgCenter = new Image();
+        imgCenter.src = 'public/frames/center.webp';
+        imgCenter.onload = () => {
+            centerFrame = imgCenter;
+            loadedCount++;
+            checkPreloadStatus();
+        };
+
+        // Preload 64 circular trajectory frames
+        for (let i = 0; i < TOTAL_FRAMES; i++) {
+            const img = new Image();
+            const numStr = i < 10 ? '0' + i : '' + i;
+            img.src = `public/frames/frame_${numStr}.webp`;
+            img.onload = () => {
+                loadedCount++;
+                checkPreloadStatus();
+            };
+            frames[i] = img;
+        }
+
+        function checkPreloadStatus() {
+            if (loadedCount >= TOTAL_FRAMES + 1 && !isReady) {
+                isReady = true;
+                if (loaderEl) loaderEl.style.display = 'none';
+                characterCanvas.style.opacity = '1';
+                requestAnimationFrame(renderCharacterLoop);
+            }
+        }
+
+        // Setup high-definition canvas internal coordinate system
+        function setCanvasResolution() {
+            characterCanvas.width = 640;
+            characterCanvas.height = 360;
+        }
+        setCanvasResolution();
+
+        // Mouse tracking
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            updateTargetCalculation();
+        }, { passive: true });
+
+        // Touch tracking (mobile / touchscreens)
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches && e.touches.length > 0) {
+                mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY;
+                updateTargetCalculation();
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches && e.touches.length > 0) {
+                mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY;
+                updateTargetCalculation();
+            }
+        }, { passive: true });
+
+        function updateTargetCalculation() {
+            const rect = characterCanvas.getBoundingClientRect();
+            const faceX = rect.left + rect.width * 0.5;
+            const faceY = rect.top + rect.height * 0.355;
+
+            const dx = mouseX - faceX;
+            const dy = mouseY - faceY;
+            const dist = Math.hypot(dx, dy);
+
+            const deadzoneRadius = Math.min(rect.width * 0.16, 75);
+
+            if (dist < deadzoneRadius) {
+                targetIsCenter = true;
+            } else {
+                targetIsCenter = false;
+                targetAngle = Math.atan2(dy, dx);
+            }
+        }
+
+        // Shortest-path circular angular lerp
+        function lerpAngle(curr, target, factor) {
+            let diff = (target - curr) % (Math.PI * 2);
+            if (diff < -Math.PI) diff += Math.PI * 2;
+            if (diff > Math.PI) diff -= Math.PI * 2;
+            return curr + diff * factor;
+        }
+
+        // 60 FPS requestAnimationFrame render loop
+        function renderCharacterLoop() {
+            if (!isReady) return;
+
+            currentAngle = lerpAngle(currentAngle, targetAngle, 0.26);
+
+            const normalizedAngle = (currentAngle % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+            const frameIdx = Math.min(63, Math.max(0, Math.round((normalizedAngle / (Math.PI * 2)) * TOTAL_FRAMES) % TOTAL_FRAMES));
+
+            if (targetIsCenter && centerFrame && centerFrame.complete) {
+                ctx.drawImage(centerFrame, 0, 0, 640, 360);
+            } else if (frames[frameIdx] && frames[frameIdx].complete) {
+                ctx.drawImage(frames[frameIdx], 0, 0, 640, 360);
+            }
+
+            requestAnimationFrame(renderCharacterLoop);
+        }
+    }
+
+    // --------------------------------------------------------
+    // 16. WARM FLOATING BLOBS PARALLAX
+    // --------------------------------------------------------
+    const blobs = document.querySelectorAll('.deco-blob');
+    if (blobs.length > 0) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            blobs.forEach((blob, i) => {
+                const speed = 0.02 + i * 0.01;
+                blob.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        }, { passive: true });
+    }
+
+    // --------------------------------------------------------
+    // 17. HIGHLIGHT CARDS HOVER EFFECT
+    // --------------------------------------------------------
+    const highlightCards = document.querySelectorAll('.highlight-card');
+    highlightCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', x + '%');
+            card.style.setProperty('--mouse-y', y + '%');
+        });
+    });
+
 });
 
 // --------------------------------------------------------
-// 14. PRELOADER
+// 18. PRELOADER
 // --------------------------------------------------------
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');

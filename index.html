@@ -6,14 +6,14 @@
     <meta name="description" content="Keshav Sain - AI Engineer, Data Scientist & Full-Stack Developer Portfolio">
     <meta name="keywords" content="Keshav Sain, AI Engineer, Data Scientist, Portfolio, Machine Learning, Python">
     <meta name="author" content="Keshav Sain">
-    <title>Keshav Sain | AI Engineer & Data Scientist</title>
+    <title>Keshav Sain | AI Engineer &amp; Data Scientist</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Satisfy&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main Stylesheet -->
@@ -30,94 +30,93 @@
         </div>
     </div>
 
-    <!-- ========== CURSOR GLOW (Desktop) ========== -->
+    <!-- ========== CURSOR GLOW ========== -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- ========== NAVIGATION ========== -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>KS<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="#contact" class="nav-link cta-link">
-                    <i class="fas fa-paper-plane"></i> Contact
-                </a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <!-- ========== DECORATIVE WARM BLOBS ========== -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ========== FLOATING TOP NAV PILL ========== -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-pill-box">
+            <a href="index.html" class="nav-logo">&lt;Keshav<span>.</span>/&gt;</a>
+            <div class="nav-links">
+                <a href="index.html" class="pill-nav-link current">HOME</a>
+                <a href="about.html" class="pill-nav-link">ABOUT</a>
+                <a href="skills.html" class="pill-nav-link">SKILLS</a>
+                <a href="projects.html" class="pill-nav-link">WORK</a>
+                <a href="experience.html" class="pill-nav-link">EXPERIENCE</a>
+                <a href="certifications.html" class="pill-nav-link">CERTS</a>
+                <a href="contact.html" class="pill-nav-link">CONTACT</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-list">
+            <a href="index.html" class="mobile-nav-link current">HOME</a>
+            <a href="about.html" class="mobile-nav-link">ABOUT</a>
+            <a href="skills.html" class="mobile-nav-link">SKILLS</a>
+            <a href="projects.html" class="mobile-nav-link">WORK</a>
+            <a href="experience.html" class="mobile-nav-link">EXPERIENCE</a>
+            <a href="certifications.html" class="mobile-nav-link">CERTS</a>
+            <a href="contact.html" class="mobile-nav-link">CONTACT</a>
+        </div>
+    </div>
+
     <!-- ========== HERO SECTION ========== -->
-    <section id="hero">
-        <canvas id="particleCanvas"></canvas>
-        <!-- Aurora gradient blobs -->
-        <div class="aurora">
-            <div class="aurora-blob blob-1"></div>
-            <div class="aurora-blob blob-2"></div>
-            <div class="aurora-blob blob-3"></div>
-        </div>
-        <!-- Grid overlay -->
-        <div class="grid-overlay"></div>
+    <section id="hero" class="luxury-hero">
+        <div class="hero-warm-bg"></div>
+        <div class="dot-grid-overlay"></div>
 
-        <div class="hero-content">
-            <div class="hero-badge reveal">
-                <span class="badge-dot"></span>
-                Available for Opportunities
+        <div class="container luxury-hero-container">
+            <!-- Left: Typography & Actions -->
+            <div class="luxury-hero-left reveal">
+                <span class="luxury-kicker">
+                    <i class="fas fa-hand-sparkles"></i> HELLO, I'M
+                </span>
+                <h1 class="luxury-script-name">Keshav</h1>
+                <h2 class="luxury-surname">Sain</h2>
+                <p class="luxury-hero-bio">
+                    Crafting intelligent digital experiences through Artificial Intelligence, predictive data modeling, and scalable full-stack engineering. Turning raw data into decisions and code into craft.
+                </p>
+                <div class="hero-actions">
+                    <a href="KeshavSain_Resume.pdf" target="_blank" class="btn-warm-filled">
+                        <span>VIEW RESUME</span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="contact.html" class="btn-warm-outlined">
+                        LET'S TALK
+                    </a>
+                </div>
+                <div class="luxury-hero-socials">
+                    <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:Keshavsain.jpr@gmail.com" class="social-icon-btn" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <h1 class="hero-name reveal">
-                Hi, I'm <span class="gradient-text glow-text">Keshav Sain</span>
-            </h1>
-            <div class="hero-role reveal">
-                <span class="role-prefix">I'm a </span>
-                <span class="typed-text" id="typedText"></span>
-                <span class="cursor">|</span>
-            </div>
-            <p class="hero-description reveal">
-                Building intelligent systems & data-driven solutions that transform ideas into reality. 
-                Passionate about AI, Machine Learning, and scalable web applications.
-            </p>
-            <div class="hero-cta reveal">
-                <a href="#projects" class="btn btn-primary btn-glow">
-                    <i class="fas fa-rocket"></i> View My Work
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-paper-plane"></i> Get In Touch
-                </a>
-                <a href="#about" class="btn btn-ghost">
-                    Learn More <i class="fas fa-arrow-down"></i>
-                </a>
-            </div>
-            <div class="hero-socials reveal">
-                <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:Keshavsain.jpr@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
 
-        <!-- Floating tech badges (positioned across the entire hero viewport) -->
-        <div class="floating-badges">
-            <div class="float-badge fb-1" title="Python"><i class="fab fa-python"></i><span>Python</span></div>
-            <div class="float-badge fb-2" title="AI & Machine Learning"><i class="fas fa-brain"></i><span>AI / ML</span></div>
-            <div class="float-badge fb-3" title="SQL & Databases"><i class="fas fa-database"></i><span>SQL DB</span></div>
-            <div class="float-badge fb-4" title="Full Stack Web"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-            <div class="float-badge fb-5" title="LLM & Automation"><i class="fas fa-robot"></i><span>LLM & RAG</span></div>
-            <div class="float-badge fb-6" title="Data Analytics"><i class="fas fa-chart-line"></i><span>Analytics</span></div>
+            <!-- Right: Seamless Interactive Character Stage -->
+            <div class="luxury-hero-right reveal">
+                <div class="seamless-character-stage">
+                    <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10; background: rgba(44, 24, 16, 0.7); backdrop-filter: blur(8px); color: #fff; font-family: var(--font-mono); font-size: 0.7rem; padding: 0.3rem 0.75rem; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.05em; pointer-events: none;">
+                        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #00d26a; margin-right: 6px; vertical-align: middle;"></span>INTERACTIVE 360°
+                    </div>
+                    <canvas id="characterCanvas" width="640" height="360"></canvas>
+                </div>
+            </div>
         </div>
 
         <div class="scroll-indicator">
@@ -128,7 +127,7 @@
         </div>
     </section>
 
-    <!-- ========== MARQUEE ========== -->
+    <!-- ========== MARQUEE TICKER ========== -->
     <div class="marquee-section">
         <div class="marquee-track">
             <div class="marquee-content">
@@ -148,703 +147,103 @@
         </div>
     </div>
 
-    <!-- ========== ABOUT SECTION ========== -->
-    <section id="about">
+    <!-- ========== QUICK EXPLORATION HIGHLIGHTS ========== -->
+    <section class="highlights-section">
         <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">01.</span> About Me
-                <span class="title-decoration"></span>
-            </h2>
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <div class="about-intro-tag">
-                        <i class="fas fa-terminal"></i> whoami
-                    </div>
-                    <p>
-                        I'm a <strong>B.Tech CSE (AI & Data Science)</strong> student at 
-                        <strong>Vivekananda Global University, Jaipur</strong> with a strong 
-                        foundation in artificial intelligence, data science, and software development.
-                    </p>
-                    <p>
-                        With hands-on experience across AI automation, full-stack development, data analytics, 
-                        and SEO optimization, I bring a versatile skill set to every project. I've built 
-                        AI-powered platforms that generated <span class="highlight">2,500+ qualified leads</span>, designed 
-                        LLM-powered chatbots, and created interactive dashboards that drive business decisions.
-                    </p>
-                    <p>
-                        I'm passionate about leveraging cutting-edge technologies like <strong>LangChain, RAG, 
-                        and Large Language Models</strong> to solve real-world problems. When I'm not coding, 
-                        you'll find me exploring new AI research papers and contributing to open-source projects.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item glow-card">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <span class="info-label">Education</span>
-                                <span class="info-value">B.Tech CSE (AI & DS)</span>
-                            </div>
-                        </div>
-                        <div class="info-item glow-card">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="info-label">Location</span>
-                                <span class="info-value">Jaipur, Rajasthan</span>
-                            </div>
-                        </div>
-                        <div class="info-item glow-card">
-                            <i class="fas fa-university"></i>
-                            <div>
-                                <span class="info-label">University</span>
-                                <span class="info-value">Vivekananda Global University</span>
-                            </div>
-                        </div>
-                        <div class="info-item glow-card">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="info-label">Graduating</span>
-                                <span class="info-value">2027</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card gradient-border reveal">
-                        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
-                        <div class="stat-number" data-target="4" data-suffix="+">0</div>
-                        <div class="stat-label">Internships</div>
-                    </div>
-                    <div class="stat-card gradient-border reveal">
-                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
-                        <div class="stat-number" data-target="6" data-suffix="+">0</div>
-                        <div class="stat-label">Certifications</div>
-                    </div>
-                    <div class="stat-card gradient-border reveal">
-                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                        <div class="stat-number" data-target="7" data-suffix="+">0</div>
-                        <div class="stat-label">Projects Built</div>
-                    </div>
-                    <div class="stat-card gradient-border reveal">
-                        <div class="stat-icon"><i class="fas fa-star"></i></div>
-                        <div class="stat-number" data-target="8.0" data-suffix="" data-decimal="true">0</div>
-                        <div class="stat-label">CGPA Score</div>
-                    </div>
-                </div>
+            <div class="section-header reveal">
+                <span class="section-subtitle">EXPLORE THE PORTFOLIO</span>
+                <h2 class="section-title">Dedicated Domains</h2>
+                <p class="section-desc">Dive deeper into each facet of my experience, projects, skills, and certifications.</p>
+            </div>
+
+            <div class="highlights-grid">
+                <a href="about.html" class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <h3>About Me</h3>
+                    <p>Learn about my academic background, technical philosophy, and what drives my passion for AI.</p>
+                    <span class="highlight-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="skills.html" class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Skills &amp; Tech</h3>
+                    <p>Detailed breakdown of my 30+ technical proficiencies across Python, AI/ML, and databases.</p>
+                    <span class="highlight-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="projects.html" class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Featured Projects</h3>
+                    <p>Explore production AI chatbots, SEO platforms, graph algorithms, and BI dashboards.</p>
+                    <span class="highlight-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="experience.html" class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Experience</h3>
+                    <p>Review 4 corporate internships, key responsibilities, and quantified business impact.</p>
+                    <span class="highlight-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ========== SKILLS SECTION ========== -->
-    <section id="skills">
+    <!-- ========== STATS BAR ========== -->
+    <section class="stats-bar">
         <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">02.</span> Skills & Technologies
-                <span class="title-decoration"></span>
-            </h2>
-
-            <!-- Skill Bars (Top Skills) -->
-            <div class="skill-bars reveal">
-                <div class="skill-bar-item">
-                    <div class="skill-bar-header">
-                        <span>Python</span><span>95%</span>
-                    </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="95"></div>
-                    </div>
+            <div class="stats-bar-grid">
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="4" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Internships</div>
                 </div>
-                <div class="skill-bar-item">
-                    <div class="skill-bar-header">
-                        <span>AI & Machine Learning</span><span>88%</span>
-                    </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="88"></div>
-                    </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="7" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Projects Built</div>
                 </div>
-                <div class="skill-bar-item">
-                    <div class="skill-bar-header">
-                        <span>Data Science & Analytics</span><span>90%</span>
-                    </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="90"></div>
-                    </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="6" data-suffix="+">0</div>
+                    <div class="stats-bar-label">Certifications</div>
                 </div>
-                <div class="skill-bar-item">
-                    <div class="skill-bar-header">
-                        <span>SQL & Databases</span><span>85%</span>
-                    </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="85"></div>
-                    </div>
+                <div class="stats-bar-item reveal">
+                    <div class="stats-bar-number" data-target="8.0" data-suffix="" data-decimal="true">0</div>
+                    <div class="stats-bar-label">CGPA Score</div>
                 </div>
-            </div>
-
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-
-                <!-- AI / ML -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-brain"></i></div>
-                        <h3>AI & Machine Learning</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">OpenAI API</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Hugging Face</span>
-                        <span class="skill-tag">RAG</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Vector DBs</span>
-                    </div>
-                </div>
-
-                <!-- Web & Backend -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-server"></i></div>
-                        <h3>Web & Backend</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                    </div>
-                </div>
-
-                <!-- Data Science -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div>
-                        <h3>Data Science & Analytics</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Matplotlib</span>
-                        <span class="skill-tag">Seaborn</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                </div>
-
-                <!-- Databases -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-database"></i></div>
-                        <h3>Databases</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">DBMS</span>
-                    </div>
-                </div>
-
-                <!-- DevOps & Tools -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-tools"></i></div>
-                        <h3>DevOps & Tools</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">n8n</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-
-                <!-- Core Concepts -->
-                <div class="skill-category gradient-border reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon-wrap"><i class="fas fa-cogs"></i></div>
-                        <h3>Core Concepts</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">DSA</span>
-                        <span class="skill-tag">OOP</span>
-                        <span class="skill-tag">API Integration</span>
-                        <span class="skill-tag">Automation</span>
-                        <span class="skill-tag">Pipelining</span>
-                        <span class="skill-tag">Technical SEO</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== EXPERIENCE SECTION ========== -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">03.</span> Work Experience
-                <span class="title-decoration"></span>
-            </h2>
-            <div class="timeline">
-                <div class="timeline-line"></div>
-
-                <!-- Experience 1 -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot">
-                        <div class="dot-ping"></div>
-                    </div>
-                    <div class="timeline-content gradient-border">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">AI Automation & SEO Intern</h3>
-                                <h4 class="timeline-company">
-                                    <i class="fas fa-building"></i> MetaBlock Technology
-                                </h4>
-                            </div>
-                            <span class="timeline-date">
-                                <i class="fas fa-calendar"></i> 2026 — Present
-                            </span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>Built an AI-powered SEO automation platform generating technical SEO audits</li>
-                            <li>Developed AI-powered lead-generation workflows identifying <strong>2,500+ qualified leads</strong></li>
-                            <li>Designed an LLM-powered chatbot for automated customer support</li>
-                            <li>Automated SEO analysis using n8n and AI APIs, reducing manual effort</li>
-                            <li>Achieved <strong>200% increase in website impressions</strong> via AI-driven SEO</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>Python</span><span>n8n</span><span>AI APIs</span><span>LLM</span><span>SEO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content gradient-border">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">AI & Full-Stack Intern</h3>
-                                <h4 class="timeline-company">
-                                    <i class="fas fa-building"></i> Fatcamel AI
-                                </h4>
-                            </div>
-                            <span class="timeline-date">
-                                <i class="fas fa-calendar"></i> 2026
-                            </span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>Designed and implemented AI-driven lead generation solutions generating <strong>2,500+ qualified business leads</strong></li>
-                            <li>Integrated AI capabilities into full-stack applications using Python, REST APIs, SQL</li>
-                            <li>Developed backend services and automation scripts to streamline data processing</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>Python</span><span>REST APIs</span><span>SQL</span><span>Full-Stack</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content gradient-border">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Data Science & Analytics Intern</h3>
-                                <h4 class="timeline-company">
-                                    <i class="fas fa-building"></i> TeachNook
-                                </h4>
-                            </div>
-                            <span class="timeline-date">
-                                <i class="fas fa-calendar"></i> 2024
-                            </span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>Developed ML models for Health Insurance Cross-Sell & Vehicle Insurance Prediction</li>
-                            <li>Built interactive Power BI dashboards to visualize business insights and model outcomes</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>ML</span><span>Power BI</span><span>Python</span><span>Data Analytics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 4 -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content gradient-border">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Jr. Data Analyst Intern</h3>
-                                <h4 class="timeline-company">
-                                    <i class="fas fa-building"></i> Accorent Pvt. Ltd.
-                                </h4>
-                            </div>
-                            <span class="timeline-date">
-                                <i class="fas fa-calendar"></i> 2023 — 2024
-                            </span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>Contributed to data preparation, research tasks, and report documentation</li>
-                            <li>Assisted in analysis workflows using Python and Power BI experimentation</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span>Python</span><span>Power BI</span><span>Data Analysis</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PROJECTS SECTION ========== -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">04.</span> Featured Projects
-                <span class="title-decoration"></span>
-            </h2>
-
-            <!-- Featured Project (Large Card) -->
-            <div class="featured-project gradient-border reveal">
-                <div class="featured-project-badge">⭐ Featured Project</div>
-                <div class="featured-project-content">
-                    <div class="featured-icon"><i class="fas fa-search-dollar"></i></div>
-                    <div>
-                        <h3>AI SEO Automation Platform</h3>
-                        <p>Built an end-to-end automation platform using n8n and AI APIs to perform technical/on-page SEO analysis, 
-                        generate comprehensive website audit reports, and deliver optimization recommendations — achieving a 
-                        <strong>200% increase in website impressions</strong>.</p>
-                        <div class="project-tech">
-                            <span>Python</span><span>n8n</span><span>AI APIs</span><span>SEO</span><span>FastAPI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">01</div>
-                    <div class="project-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="project-title">LLM Customer Support Chatbot</h3>
-                    <p class="project-description">
-                        LLM-powered chatbot leveraging RAG and prompt engineering for accurate, 
-                        context-aware automated customer support responses.
-                    </p>
-                    <div class="project-tech">
-                        <span>LangChain</span><span>OpenAI</span><span>RAG</span><span>FastAPI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">02</div>
-                    <div class="project-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3 class="project-title">Automated Leads Generation</h3>
-                    <p class="project-description">
-                        AI-driven lead gen solution identifying 2,500+ qualified business leads 
-                        through automated web data collection and intelligent filtering.
-                    </p>
-                    <div class="project-tech">
-                        <span>Python</span><span>REST APIs</span><span>SQL</span><span>Automation</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">03</div>
-                    <div class="project-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3 class="project-title">Graph Network Analysis Model</h3>
-                    <p class="project-description">
-                        Machine learning model for graph-based network analysis applying advanced 
-                        algorithms to understand complex network structures.
-                    </p>
-                    <div class="project-tech">
-                        <span>Python</span><span>Scikit-learn</span><span>NetworkX</span><span>ML</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">04</div>
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="project-title">OLA Ride Data Dashboard</h3>
-                    <p class="project-description">
-                        Interactive Power BI dashboard analyzing OLA ride data to uncover patterns, 
-                        trends, and actionable business insights.
-                    </p>
-                    <div class="project-tech">
-                        <span>Power BI</span><span>Data Analysis</span><span>DAX</span><span>SQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">05</div>
-                    <div class="project-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3 class="project-title">Health Insurance Prediction</h3>
-                    <p class="project-description">
-                        ML prediction model with interactive Power BI dashboard for health insurance 
-                        cross-sell prediction and business insights.
-                    </p>
-                    <div class="project-tech">
-                        <span>ML</span><span>Power BI</span><span>Python</span><span>Pandas</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card gradient-border reveal" data-tilt>
-                    <div class="project-card-glow"></div>
-                    <div class="project-number">06</div>
-                    <div class="project-icon">
-                        <i class="fas fa-boxes-stacked"></i>
-                    </div>
-                    <h3 class="project-title">Stock Management System</h3>
-                    <p class="project-description">
-                        Python-based stock management application for handling inventory operations, 
-                        data tracking, and efficient stock control.
-                    </p>
-                    <div class="project-tech">
-                        <span>Python</span><span>MySQL</span><span>CRUD</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CERTIFICATIONS SECTION ========== -->
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">05.</span> Certifications & Publication
-                <span class="title-decoration"></span>
-            </h2>
-            <div class="cert-grid">
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fab fa-python"></i></div>
-                    <div class="cert-info">
-                        <h3>Python for Data Science</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> IBM</span>
-                    </div>
-                </div>
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fas fa-brain"></i></div>
-                    <div class="cert-info">
-                        <h3>BCS AI Essentials</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> EXIN</span>
-                    </div>
-                </div>
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fab fa-google"></i></div>
-                    <div class="cert-info">
-                        <h3>Data, Data, Everywhere</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> Google</span>
-                    </div>
-                </div>
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fas fa-chart-pie"></i></div>
-                    <div class="cert-info">
-                        <h3>Data Visualization</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> University of Illinois</span>
-                    </div>
-                </div>
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fas fa-chart-bar"></i></div>
-                    <div class="cert-info">
-                        <h3>Power BI for Beginners</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> Great Learning</span>
-                    </div>
-                </div>
-                <div class="cert-card gradient-border reveal">
-                    <div class="cert-badge"><i class="fas fa-link"></i></div>
-                    <div class="cert-info">
-                        <h3>BCS Blockchain Essentials</h3>
-                        <span class="cert-issuer"><i class="fas fa-award"></i> EXIN</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Publication -->
-            <div class="publication-card gradient-border reveal">
-                <div class="publication-glow"></div>
-                <div class="publication-icon">
-                    <i class="fas fa-scroll"></i>
-                </div>
-                <div class="publication-content">
-                    <span class="publication-label">📄 Published Research Paper</span>
-                    <h3>E-Waste Management</h3>
-                    <p>Journal of Emerging Technologies and Innovative Research (JETIR)</p>
-                </div>
-                <div class="publication-badge">
-                    <i class="fas fa-check-circle"></i> Published
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title reveal">
-                <span class="section-number">06.</span> Let's Work Together
-                <span class="title-decoration"></span>
-            </h2>
-            <p class="contact-subtitle reveal">
-                I'm currently looking for new opportunities. Whether you have a project idea, 
-                a question, or just want to connect — my inbox is always open!
-            </p>
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <div class="contact-card glow-card">
-                        <div class="contact-card-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:Keshavsain.jpr@gmail.com">Keshavsain.jpr@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-card glow-card">
-                        <div class="contact-card-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:+919887159297">+91 9887159297</a>
-                        </div>
-                    </div>
-                    <div class="contact-card glow-card">
-                        <div class="contact-card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <span>Jaipur, Rajasthan, India</span>
-                        </div>
-                    </div>
-                    <div class="contact-socials">
-                        <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" class="social-link">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form reveal" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder=" ">
-                        <label for="name">Your Name</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder=" ">
-                        <label for="email">Your Email</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-                        <label for="message">Your Message</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-glow btn-submit">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                        <span class="btn-shine"></span>
-                    </button>
-                </form>
             </div>
         </div>
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer id="footer">
+    <footer class="site-footer" id="footer">
         <div class="container">
-            <div class="footer-content">
-                <p class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>Keshav Sain<span class="logo-bracket">/&gt;</span>
-                </p>
+            <div class="footer-top">
+                <a href="index.html" class="footer-logo">&lt;Keshav<span>Sain</span>/&gt;</a>
                 <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
+                    <a href="index.html">HOME</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="skills.html">SKILLS</a>
+                    <a href="projects.html">WORK</a>
+                    <a href="experience.html">EXPERIENCE</a>
+                    <a href="certifications.html">CERTS</a>
+                    <a href="contact.html">CONTACT</a>
                 </div>
-                <p class="footer-text">
-                    Designed & Built with <i class="fas fa-heart" style="color: #ff4757;"></i> by Keshav Sain
-                </p>
-                <p class="footer-copyright">
-                    &copy; 2026 All Rights Reserved.
-                </p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/keshav-sain-4450271b2" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Keshavsain1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:Keshavsain.jpr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-text">Designed &amp; Built with <i class="fas fa-heart"></i> by Keshav Sain</p>
+                <p class="footer-copyright">&copy; 2026 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ========== BACK TO TOP ========== -->
+    <!-- ========== BACK TO TOP & TOAST ========== -->
     <button id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- ========== TOAST NOTIFICATION ========== -->
     <div id="toast" class="toast">
         <i class="fas fa-check-circle"></i>
         <span>Message sent successfully! I'll get back to you soon.</span>
