@@ -139,9 +139,13 @@
                     </div>
 
                     <div class="canvas-frame-wrap">
-                        <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10; background: rgba(44, 24, 16, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.05em; pointer-events: none; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #00d26a; box-shadow: 0 0 8px #00d26a;"></span>
-                            <span id="charAngleDisplay">360° HEAD TRACKING</span>
+                        <div class="character-hud-top">
+                            <span class="hud-status-dot"></span>
+                            <span id="charAngleDisplay">360° HEAD TRACKING • 128 POSES</span>
+                        </div>
+                        <div class="character-hud-bottom">
+                            <i class="fas fa-wave-square" style="color: var(--accent-coral);"></i>
+                            <span id="charSectorDisplay">FARNEBACK OPTICAL FLOW • 2.81°/F</span>
                         </div>
                         <canvas id="characterCanvas" width="640" height="360"></canvas>
                     </div>

@@ -1,0 +1,25 @@
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Raw intermediate video extraction frames (WebP frames in public/frames/ are production assets)
+public/analysis/frame_*.jpg
+public/analysis/optical_flow_*.jpg
+public/analysis/clean_flow_*.jpg
+public/analysis/contact_sheet.jpg
+public/analysis/frame_contact_sheet.jpg
+
+# Temporary diagnostic scripts
+analyze_*.py
+inspect_*.py
+orientations.py
+extract_*.py
+generate_*.py
+log_all_angles.py
+map_trajectory.py
+measure_gaze.py
+reextract_frames.py
+track_head.py
+verify_frames.py
+calculate_angles.py
+build_compass.py

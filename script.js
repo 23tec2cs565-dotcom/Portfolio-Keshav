@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const characterCanvas = document.getElementById('characterCanvas');
     if (characterCanvas) {
         const ctx = characterCanvas.getContext('2d', { alpha: false });
-        const TOTAL_FRAMES = 64;
+        const TOTAL_FRAMES = 128;
         const frames = [];
         let centerFrame = null;
         let loadedCount = 0;
@@ -539,7 +539,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouseY = window.innerHeight / 2;
 
         const telemetryEl = document.getElementById('charAngleDisplay');
+        const sectorEl = document.getElementById('charSectorDisplay');
         const loaderEl = document.getElementById('characterLoader');
+
+        // Sector name helper for rich telemetry
+        function getSectorName(deg) {
+            if (deg >= 338 || deg < 22) return 'EAST (0°)';
+            if (deg >= 22 && deg < 68) return 'SOUTHEAST (45°)';
+            if (deg >= 68 && deg < 112) return 'SOUTH (90°)';
+            if (deg >= 112 && deg < 158) return 'SOUTHWEST (135°)';
+            if (deg >= 158 && deg < 202) return 'WEST (180°)';
+            if (deg >= 202 && deg < 248) return 'NORTHWEST (225°)';
+            if (deg >= 248 && deg < 292) return 'NORTH APEX (270°)';
+            return 'NORTHEAST (315°)';
+        }
 
         // Preload center neutral frame & paint immediately for ZERO buffering delay
         const imgCenter = new Image();
@@ -553,10 +566,10 @@ document.addEventListener('DOMContentLoaded', () => {
             checkPreloadStatus();
         };
 
-        // Preload 64 circular trajectory frames
+        // Preload 128 circular trajectory frames (frame_000.webp to frame_127.webp)
         for (let i = 0; i < TOTAL_FRAMES; i++) {
             const img = new Image();
-            const numStr = i < 10 ? '0' + i : '' + i;
+            const numStr = String(i).padStart(3, '0');
             img.src = `public/frames/frame_${numStr}.webp`;
             img.onload = () => {
                 loadedCount++;
@@ -639,16 +652,21 @@ document.addEventListener('DOMContentLoaded', () => {
             currentAngle = lerpAngle(currentAngle, targetAngle, 0.26);
 
             const normalizedAngle = (currentAngle % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
-            const frameIdx = Math.min(63, Math.max(0, Math.round((normalizedAngle / (Math.PI * 2)) * TOTAL_FRAMES) % TOTAL_FRAMES));
+            const frameIdx = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round((normalizedAngle / (Math.PI * 2)) * TOTAL_FRAMES) % TOTAL_FRAMES));
 
             if (targetIsCenter && centerFrame && centerFrame.complete) {
                 ctx.drawImage(centerFrame, 0, 0, 640, 360);
                 if (telemetryEl) telemetryEl.textContent = 'EYE CONTACT • DIRECT';
+                if (sectorEl) sectorEl.textContent = 'NEURAL GAZE • DEADZONE LOCK';
             } else if (frames[frameIdx] && frames[frameIdx].complete) {
                 ctx.drawImage(frames[frameIdx], 0, 0, 640, 360);
+                const deg = Math.round((normalizedAngle * 180) / Math.PI);
+                const padIdx = String(frameIdx).padStart(3, '0');
                 if (telemetryEl) {
-                    const deg = Math.round((normalizedAngle * 180) / Math.PI);
-                    telemetryEl.textContent = `TRACKING • ${deg}°`;
+                    telemetryEl.textContent = `TRACKING • ${deg}° [POSE #${padIdx}/128]`;
+                }
+                if (sectorEl) {
+                    sectorEl.textContent = `${getSectorName(deg)} • 2.81°/F`;
                 }
             }
 

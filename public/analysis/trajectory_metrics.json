@@ -1,0 +1,908 @@
+{
+  "dataset_name": "128_neural_character_poses",
+  "total_frames": 128,
+  "angular_resolution_deg": 2.8125,
+  "mean_frame_step_difference": 2.8182455331307867,
+  "max_frame_step_difference": 4.8758376736111115,
+  "min_frame_step_difference": 1.0419936342592593,
+  "neutral_frame_source": 190,
+  "optical_flow_analyzed_steps": 191,
+  "trajectory_map": [
+    {
+      "index": 0,
+      "angle_deg": 0.0,
+      "angle_rad": 0.0,
+      "sector": "Right to Down-Right",
+      "source_v": 60.0
+    },
+    {
+      "index": 1,
+      "angle_deg": 2.81,
+      "angle_rad": 0.0491,
+      "sector": "Right to Down-Right",
+      "source_v": 61.0
+    },
+    {
+      "index": 2,
+      "angle_deg": 5.62,
+      "angle_rad": 0.0982,
+      "sector": "Right to Down-Right",
+      "source_v": 62.0
+    },
+    {
+      "index": 3,
+      "angle_deg": 8.44,
+      "angle_rad": 0.1473,
+      "sector": "Right to Down-Right",
+      "source_v": 63.0
+    },
+    {
+      "index": 4,
+      "angle_deg": 11.25,
+      "angle_rad": 0.1963,
+      "sector": "Right to Down-Right",
+      "source_v": 64.0
+    },
+    {
+      "index": 5,
+      "angle_deg": 14.06,
+      "angle_rad": 0.2454,
+      "sector": "Right to Down-Right",
+      "source_v": 65.0
+    },
+    {
+      "index": 6,
+      "angle_deg": 16.88,
+      "angle_rad": 0.2945,
+      "sector": "Right to Down-Right",
+      "source_v": 66.0
+    },
+    {
+      "index": 7,
+      "angle_deg": 19.69,
+      "angle_rad": 0.3436,
+      "sector": "Right to Down-Right",
+      "source_v": 67.0
+    },
+    {
+      "index": 8,
+      "angle_deg": 22.5,
+      "angle_rad": 0.3927,
+      "sector": "Right to Down-Right",
+      "source_v": 68.0
+    },
+    {
+      "index": 9,
+      "angle_deg": 25.31,
+      "angle_rad": 0.4418,
+      "sector": "Right to Down-Right",
+      "source_v": 69.0
+    },
+    {
+      "index": 10,
+      "angle_deg": 28.12,
+      "angle_rad": 0.4909,
+      "sector": "Right to Down-Right",
+      "source_v": 70.0
+    },
+    {
+      "index": 11,
+      "angle_deg": 30.94,
+      "angle_rad": 0.54,
+      "sector": "Right to Down-Right",
+      "source_v": 71.0
+    },
+    {
+      "index": 12,
+      "angle_deg": 33.75,
+      "angle_rad": 0.589,
+      "sector": "Right to Down-Right",
+      "source_v": 72.0
+    },
+    {
+      "index": 13,
+      "angle_deg": 36.56,
+      "angle_rad": 0.6381,
+      "sector": "Right to Down-Right",
+      "source_v": 73.0
+    },
+    {
+      "index": 14,
+      "angle_deg": 39.38,
+      "angle_rad": 0.6872,
+      "sector": "Right to Down-Right",
+      "source_v": 74.0
+    },
+    {
+      "index": 15,
+      "angle_deg": 42.19,
+      "angle_rad": 0.7363,
+      "sector": "Right to Down-Right",
+      "source_v": 75.0
+    },
+    {
+      "index": 16,
+      "angle_deg": 45.0,
+      "angle_rad": 0.7854,
+      "sector": "Down-Right to Down",
+      "source_v": 76.0
+    },
+    {
+      "index": 17,
+      "angle_deg": 47.81,
+      "angle_rad": 0.8345,
+      "sector": "Down-Right to Down",
+      "source_v": 76.5
+    },
+    {
+      "index": 18,
+      "angle_deg": 50.62,
+      "angle_rad": 0.8836,
+      "sector": "Down-Right to Down",
+      "source_v": 77.0
+    },
+    {
+      "index": 19,
+      "angle_deg": 53.44,
+      "angle_rad": 0.9327,
+      "sector": "Down-Right to Down",
+      "source_v": 77.5
+    },
+    {
+      "index": 20,
+      "angle_deg": 56.25,
+      "angle_rad": 0.9817,
+      "sector": "Down-Right to Down",
+      "source_v": 78.0
+    },
+    {
+      "index": 21,
+      "angle_deg": 59.06,
+      "angle_rad": 1.0308,
+      "sector": "Down-Right to Down",
+      "source_v": 78.5
+    },
+    {
+      "index": 22,
+      "angle_deg": 61.88,
+      "angle_rad": 1.0799,
+      "sector": "Down-Right to Down",
+      "source_v": 79.0
+    },
+    {
+      "index": 23,
+      "angle_deg": 64.69,
+      "angle_rad": 1.129,
+      "sector": "Down-Right to Down",
+      "source_v": 79.5
+    },
+    {
+      "index": 24,
+      "angle_deg": 67.5,
+      "angle_rad": 1.1781,
+      "sector": "Down-Right to Down",
+      "source_v": 80.0
+    },
+    {
+      "index": 25,
+      "angle_deg": 70.31,
+      "angle_rad": 1.2272,
+      "sector": "Down-Right to Down",
+      "source_v": 80.5
+    },
+    {
+      "index": 26,
+      "angle_deg": 73.12,
+      "angle_rad": 1.2763,
+      "sector": "Down-Right to Down",
+      "source_v": 81.0
+    },
+    {
+      "index": 27,
+      "angle_deg": 75.94,
+      "angle_rad": 1.3254,
+      "sector": "Down-Right to Down",
+      "source_v": 81.5
+    },
+    {
+      "index": 28,
+      "angle_deg": 78.75,
+      "angle_rad": 1.3744,
+      "sector": "Down-Right to Down",
+      "source_v": 82.0
+    },
+    {
+      "index": 29,
+      "angle_deg": 81.56,
+      "angle_rad": 1.4235,
+      "sector": "Down-Right to Down",
+      "source_v": 82.5
+    },
+    {
+      "index": 30,
+      "angle_deg": 84.38,
+      "angle_rad": 1.4726,
+      "sector": "Down-Right to Down",
+      "source_v": 83.0
+    },
+    {
+      "index": 31,
+      "angle_deg": 87.19,
+      "angle_rad": 1.5217,
+      "sector": "Down-Right to Down",
+      "source_v": 83.5
+    },
+    {
+      "index": 32,
+      "angle_deg": 90.0,
+      "angle_rad": 1.5708,
+      "sector": "Down to Down-Left",
+      "source_v": 84.0
+    },
+    {
+      "index": 33,
+      "angle_deg": 92.81,
+      "angle_rad": 1.6199,
+      "sector": "Down to Down-Left",
+      "source_v": 85.5
+    },
+    {
+      "index": 34,
+      "angle_deg": 95.62,
+      "angle_rad": 1.669,
+      "sector": "Down to Down-Left",
+      "source_v": 87.0
+    },
+    {
+      "index": 35,
+      "angle_deg": 98.44,
+      "angle_rad": 1.7181,
+      "sector": "Down to Down-Left",
+      "source_v": 88.5
+    },
+    {
+      "index": 36,
+      "angle_deg": 101.25,
+      "angle_rad": 1.7671,
+      "sector": "Down to Down-Left",
+      "source_v": 90.0
+    },
+    {
+      "index": 37,
+      "angle_deg": 104.06,
+      "angle_rad": 1.8162,
+      "sector": "Down to Down-Left",
+      "source_v": 91.5
+    },
+    {
+      "index": 38,
+      "angle_deg": 106.88,
+      "angle_rad": 1.8653,
+      "sector": "Down to Down-Left",
+      "source_v": 93.0
+    },
+    {
+      "index": 39,
+      "angle_deg": 109.69,
+      "angle_rad": 1.9144,
+      "sector": "Down to Down-Left",
+      "source_v": 94.5
+    },
+    {
+      "index": 40,
+      "angle_deg": 112.5,
+      "angle_rad": 1.9635,
+      "sector": "Down to Down-Left",
+      "source_v": 96.0
+    },
+    {
+      "index": 41,
+      "angle_deg": 115.31,
+      "angle_rad": 2.0126,
+      "sector": "Down to Down-Left",
+      "source_v": 97.5
+    },
+    {
+      "index": 42,
+      "angle_deg": 118.12,
+      "angle_rad": 2.0617,
+      "sector": "Down to Down-Left",
+      "source_v": 99.0
+    },
+    {
+      "index": 43,
+      "angle_deg": 120.94,
+      "angle_rad": 2.1108,
+      "sector": "Down to Down-Left",
+      "source_v": 100.5
+    },
+    {
+      "index": 44,
+      "angle_deg": 123.75,
+      "angle_rad": 2.1598,
+      "sector": "Down to Down-Left",
+      "source_v": 102.0
+    },
+    {
+      "index": 45,
+      "angle_deg": 126.56,
+      "angle_rad": 2.2089,
+      "sector": "Down to Down-Left",
+      "source_v": 103.5
+    },
+    {
+      "index": 46,
+      "angle_deg": 129.38,
+      "angle_rad": 2.258,
+      "sector": "Down to Down-Left",
+      "source_v": 105.0
+    },
+    {
+      "index": 47,
+      "angle_deg": 132.19,
+      "angle_rad": 2.3071,
+      "sector": "Down to Down-Left",
+      "source_v": 106.5
+    },
+    {
+      "index": 48,
+      "angle_deg": 135.0,
+      "angle_rad": 2.3562,
+      "sector": "Down-Left to Left",
+      "source_v": 108.0
+    },
+    {
+      "index": 49,
+      "angle_deg": 137.81,
+      "angle_rad": 2.4053,
+      "sector": "Down-Left to Left",
+      "source_v": 109.25
+    },
+    {
+      "index": 50,
+      "angle_deg": 140.62,
+      "angle_rad": 2.4544,
+      "sector": "Down-Left to Left",
+      "source_v": 110.5
+    },
+    {
+      "index": 51,
+      "angle_deg": 143.44,
+      "angle_rad": 2.5035,
+      "sector": "Down-Left to Left",
+      "source_v": 111.75
+    },
+    {
+      "index": 52,
+      "angle_deg": 146.25,
+      "angle_rad": 2.5525,
+      "sector": "Down-Left to Left",
+      "source_v": 113.0
+    },
+    {
+      "index": 53,
+      "angle_deg": 149.06,
+      "angle_rad": 2.6016,
+      "sector": "Down-Left to Left",
+      "source_v": 114.25
+    },
+    {
+      "index": 54,
+      "angle_deg": 151.88,
+      "angle_rad": 2.6507,
+      "sector": "Down-Left to Left",
+      "source_v": 115.5
+    },
+    {
+      "index": 55,
+      "angle_deg": 154.69,
+      "angle_rad": 2.6998,
+      "sector": "Down-Left to Left",
+      "source_v": 116.75
+    },
+    {
+      "index": 56,
+      "angle_deg": 157.5,
+      "angle_rad": 2.7489,
+      "sector": "Down-Left to Left",
+      "source_v": 118.0
+    },
+    {
+      "index": 57,
+      "angle_deg": 160.31,
+      "angle_rad": 2.798,
+      "sector": "Down-Left to Left",
+      "source_v": 119.25
+    },
+    {
+      "index": 58,
+      "angle_deg": 163.12,
+      "angle_rad": 2.8471,
+      "sector": "Down-Left to Left",
+      "source_v": 120.5
+    },
+    {
+      "index": 59,
+      "angle_deg": 165.94,
+      "angle_rad": 2.8962,
+      "sector": "Down-Left to Left",
+      "source_v": 121.75
+    },
+    {
+      "index": 60,
+      "angle_deg": 168.75,
+      "angle_rad": 2.9452,
+      "sector": "Down-Left to Left",
+      "source_v": 123.0
+    },
+    {
+      "index": 61,
+      "angle_deg": 171.56,
+      "angle_rad": 2.9943,
+      "sector": "Down-Left to Left",
+      "source_v": 124.25
+    },
+    {
+      "index": 62,
+      "angle_deg": 174.38,
+      "angle_rad": 3.0434,
+      "sector": "Down-Left to Left",
+      "source_v": 125.5
+    },
+    {
+      "index": 63,
+      "angle_deg": 177.19,
+      "angle_rad": 3.0925,
+      "sector": "Down-Left to Left",
+      "source_v": 126.75
+    },
+    {
+      "index": 64,
+      "angle_deg": 180.0,
+      "angle_rad": 3.1416,
+      "sector": "Left to Up-Left",
+      "source_v": 128.0
+    },
+    {
+      "index": 65,
+      "angle_deg": 182.81,
+      "angle_rad": 3.1907,
+      "sector": "Left to Up-Left",
+      "source_v": 129.25
+    },
+    {
+      "index": 66,
+      "angle_deg": 185.62,
+      "angle_rad": 3.2398,
+      "sector": "Left to Up-Left",
+      "source_v": 130.5
+    },
+    {
+      "index": 67,
+      "angle_deg": 188.44,
+      "angle_rad": 3.2889,
+      "sector": "Left to Up-Left",
+      "source_v": 131.75
+    },
+    {
+      "index": 68,
+      "angle_deg": 191.25,
+      "angle_rad": 3.3379,
+      "sector": "Left to Up-Left",
+      "source_v": 133.0
+    },
+    {
+      "index": 69,
+      "angle_deg": 194.06,
+      "angle_rad": 3.387,
+      "sector": "Left to Up-Left",
+      "source_v": 134.25
+    },
+    {
+      "index": 70,
+      "angle_deg": 196.88,
+      "angle_rad": 3.4361,
+      "sector": "Left to Up-Left",
+      "source_v": 135.5
+    },
+    {
+      "index": 71,
+      "angle_deg": 199.69,
+      "angle_rad": 3.4852,
+      "sector": "Left to Up-Left",
+      "source_v": 136.75
+    },
+    {
+      "index": 72,
+      "angle_deg": 202.5,
+      "angle_rad": 3.5343,
+      "sector": "Left to Up-Left",
+      "source_v": 138.0
+    },
+    {
+      "index": 73,
+      "angle_deg": 205.31,
+      "angle_rad": 3.5834,
+      "sector": "Left to Up-Left",
+      "source_v": 139.25
+    },
+    {
+      "index": 74,
+      "angle_deg": 208.12,
+      "angle_rad": 3.6325,
+      "sector": "Left to Up-Left",
+      "source_v": 140.5
+    },
+    {
+      "index": 75,
+      "angle_deg": 210.94,
+      "angle_rad": 3.6816,
+      "sector": "Left to Up-Left",
+      "source_v": 141.75
+    },
+    {
+      "index": 76,
+      "angle_deg": 213.75,
+      "angle_rad": 3.7306,
+      "sector": "Left to Up-Left",
+      "source_v": 143.0
+    },
+    {
+      "index": 77,
+      "angle_deg": 216.56,
+      "angle_rad": 3.7797,
+      "sector": "Left to Up-Left",
+      "source_v": 144.25
+    },
+    {
+      "index": 78,
+      "angle_deg": 219.38,
+      "angle_rad": 3.8288,
+      "sector": "Left to Up-Left",
+      "source_v": 145.5
+    },
+    {
+      "index": 79,
+      "angle_deg": 222.19,
+      "angle_rad": 3.8779,
+      "sector": "Left to Up-Left",
+      "source_v": 146.75
+    },
+    {
+      "index": 80,
+      "angle_deg": 225.0,
+      "angle_rad": 3.927,
+      "sector": "Up-Left to Up",
+      "source_v": 148.0
+    },
+    {
+      "index": 81,
+      "angle_deg": 227.81,
+      "angle_rad": 3.9761,
+      "sector": "Up-Left to Up",
+      "source_v": 148.8
+    },
+    {
+      "index": 82,
+      "angle_deg": 230.62,
+      "angle_rad": 4.0252,
+      "sector": "Up-Left to Up",
+      "source_v": 149.61
+    },
+    {
+      "index": 83,
+      "angle_deg": 233.44,
+      "angle_rad": 4.0743,
+      "sector": "Up-Left to Up",
+      "source_v": 150.41
+    },
+    {
+      "index": 84,
+      "angle_deg": 236.25,
+      "angle_rad": 4.1233,
+      "sector": "Up-Left to Up",
+      "source_v": 151.21
+    },
+    {
+      "index": 85,
+      "angle_deg": 239.06,
+      "angle_rad": 4.1724,
+      "sector": "Up-Left to Up",
+      "source_v": 152.02
+    },
+    {
+      "index": 86,
+      "angle_deg": 241.88,
+      "angle_rad": 4.2215,
+      "sector": "Up-Left to Up",
+      "source_v": 152.82
+    },
+    {
+      "index": 87,
+      "angle_deg": 244.69,
+      "angle_rad": 4.2706,
+      "sector": "Up-Left to Up",
+      "source_v": 153.62
+    },
+    {
+      "index": 88,
+      "angle_deg": 247.5,
+      "angle_rad": 4.3197,
+      "sector": "Up-Left to Up",
+      "source_v": 154.43
+    },
+    {
+      "index": 89,
+      "angle_deg": 250.31,
+      "angle_rad": 4.3688,
+      "sector": "Up-Left to Up",
+      "source_v": 155.23
+    },
+    {
+      "index": 90,
+      "angle_deg": 253.12,
+      "angle_rad": 4.4179,
+      "sector": "Up-Left to Up",
+      "source_v": 156.04
+    },
+    {
+      "index": 91,
+      "angle_deg": 255.94,
+      "angle_rad": 4.467,
+      "sector": "Up-Left to Up",
+      "source_v": 156.84
+    },
+    {
+      "index": 92,
+      "angle_deg": 258.75,
+      "angle_rad": 4.516,
+      "sector": "Up-Left to Up",
+      "source_v": 157.64
+    },
+    {
+      "index": 93,
+      "angle_deg": 261.56,
+      "angle_rad": 4.5651,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 148.0
+    },
+    {
+      "index": 94,
+      "angle_deg": 264.38,
+      "angle_rad": 4.6142,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 130.0
+    },
+    {
+      "index": 95,
+      "angle_deg": 267.19,
+      "angle_rad": 4.6633,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 112.0
+    },
+    {
+      "index": 96,
+      "angle_deg": 270.0,
+      "angle_rad": 4.7124,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 94.0
+    },
+    {
+      "index": 97,
+      "angle_deg": 272.81,
+      "angle_rad": 4.7615,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 76.0
+    },
+    {
+      "index": 98,
+      "angle_deg": 275.62,
+      "angle_rad": 4.8106,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 58.0
+    },
+    {
+      "index": 99,
+      "angle_deg": 278.44,
+      "angle_rad": 4.8597,
+      "sector": "Up-Apex Loopback (Bridge 158->30)",
+      "source_v": 40.0
+    },
+    {
+      "index": 100,
+      "angle_deg": 281.25,
+      "angle_rad": 4.9087,
+      "sector": "Up to Up-Right",
+      "source_v": 30.5
+    },
+    {
+      "index": 101,
+      "angle_deg": 284.06,
+      "angle_rad": 4.9578,
+      "sector": "Up to Up-Right",
+      "source_v": 31.62
+    },
+    {
+      "index": 102,
+      "angle_deg": 286.88,
+      "angle_rad": 5.0069,
+      "sector": "Up to Up-Right",
+      "source_v": 32.75
+    },
+    {
+      "index": 103,
+      "angle_deg": 289.69,
+      "angle_rad": 5.056,
+      "sector": "Up to Up-Right",
+      "source_v": 33.88
+    },
+    {
+      "index": 104,
+      "angle_deg": 292.5,
+      "angle_rad": 5.1051,
+      "sector": "Up to Up-Right",
+      "source_v": 35.0
+    },
+    {
+      "index": 105,
+      "angle_deg": 295.31,
+      "angle_rad": 5.1542,
+      "sector": "Up to Up-Right",
+      "source_v": 36.12
+    },
+    {
+      "index": 106,
+      "angle_deg": 298.12,
+      "angle_rad": 5.2033,
+      "sector": "Up to Up-Right",
+      "source_v": 37.25
+    },
+    {
+      "index": 107,
+      "angle_deg": 300.94,
+      "angle_rad": 5.2524,
+      "sector": "Up to Up-Right",
+      "source_v": 38.38
+    },
+    {
+      "index": 108,
+      "angle_deg": 303.75,
+      "angle_rad": 5.3014,
+      "sector": "Up to Up-Right",
+      "source_v": 39.5
+    },
+    {
+      "index": 109,
+      "angle_deg": 306.56,
+      "angle_rad": 5.3505,
+      "sector": "Up to Up-Right",
+      "source_v": 40.62
+    },
+    {
+      "index": 110,
+      "angle_deg": 309.38,
+      "angle_rad": 5.3996,
+      "sector": "Up to Up-Right",
+      "source_v": 41.75
+    },
+    {
+      "index": 111,
+      "angle_deg": 312.19,
+      "angle_rad": 5.4487,
+      "sector": "Up to Up-Right",
+      "source_v": 42.88
+    },
+    {
+      "index": 112,
+      "angle_deg": 315.0,
+      "angle_rad": 5.4978,
+      "sector": "Up-Right to Right",
+      "source_v": 44.0
+    },
+    {
+      "index": 113,
+      "angle_deg": 317.81,
+      "angle_rad": 5.5469,
+      "sector": "Up-Right to Right",
+      "source_v": 45.0
+    },
+    {
+      "index": 114,
+      "angle_deg": 320.62,
+      "angle_rad": 5.596,
+      "sector": "Up-Right to Right",
+      "source_v": 46.0
+    },
+    {
+      "index": 115,
+      "angle_deg": 323.44,
+      "angle_rad": 5.645,
+      "sector": "Up-Right to Right",
+      "source_v": 47.0
+    },
+    {
+      "index": 116,
+      "angle_deg": 326.25,
+      "angle_rad": 5.6941,
+      "sector": "Up-Right to Right",
+      "source_v": 48.0
+    },
+    {
+      "index": 117,
+      "angle_deg": 329.06,
+      "angle_rad": 5.7432,
+      "sector": "Up-Right to Right",
+      "source_v": 49.0
+    },
+    {
+      "index": 118,
+      "angle_deg": 331.88,
+      "angle_rad": 5.7923,
+      "sector": "Up-Right to Right",
+      "source_v": 50.0
+    },
+    {
+      "index": 119,
+      "angle_deg": 334.69,
+      "angle_rad": 5.8414,
+      "sector": "Up-Right to Right",
+      "source_v": 51.0
+    },
+    {
+      "index": 120,
+      "angle_deg": 337.5,
+      "angle_rad": 5.8905,
+      "sector": "Up-Right to Right",
+      "source_v": 52.0
+    },
+    {
+      "index": 121,
+      "angle_deg": 340.31,
+      "angle_rad": 5.9396,
+      "sector": "Up-Right to Right",
+      "source_v": 53.0
+    },
+    {
+      "index": 122,
+      "angle_deg": 343.12,
+      "angle_rad": 5.9887,
+      "sector": "Up-Right to Right",
+      "source_v": 54.0
+    },
+    {
+      "index": 123,
+      "angle_deg": 345.94,
+      "angle_rad": 6.0377,
+      "sector": "Up-Right to Right",
+      "source_v": 55.0
+    },
+    {
+      "index": 124,
+      "angle_deg": 348.75,
+      "angle_rad": 6.0868,
+      "sector": "Up-Right to Right",
+      "source_v": 56.0
+    },
+    {
+      "index": 125,
+      "angle_deg": 351.56,
+      "angle_rad": 6.1359,
+      "sector": "Up-Right to Right",
+      "source_v": 57.0
+    },
+    {
+      "index": 126,
+      "angle_deg": 354.38,
+      "angle_rad": 6.185,
+      "sector": "Up-Right to Right",
+      "source_v": 58.0
+    },
+    {
+      "index": 127,
+      "angle_deg": 357.19,
+      "angle_rad": 6.2341,
+      "sector": "Up-Right to Right",
+      "source_v": 59.0
+    }
+  ]
+}
