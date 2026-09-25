@@ -93,33 +93,52 @@
                 <!-- Left: Direct Info Cards & Links -->
                 <div class="contact-info reveal">
                     
-                    <a href="mailto:Keshavsain.jpr@gmail.com" class="contact-card" style="text-decoration: none;">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <!-- Email Card with Copy Trigger -->
+                    <div class="contact-card" style="justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 1.25rem;">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Direct Email</h4>
+                                <a href="mailto:Keshavsain.jpr@gmail.com" style="color: var(--accent-coral); font-weight: 600; text-decoration: none;">Keshavsain.jpr@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Direct Email</h4>
-                            <p style="color: var(--accent-coral); font-weight: 600;">Keshavsain.jpr@gmail.com</p>
-                        </div>
-                    </a>
+                        <button class="btn-warm-outlined" data-copy="Keshavsain.jpr@gmail.com" style="padding: 0.5rem 1rem; font-size: 0.8rem;" title="Copy email address">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
 
-                    <a href="tel:+919887159297" class="contact-card" style="text-decoration: none;">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
+                    <!-- Phone Card with Copy Trigger -->
+                    <div class="contact-card" style="justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 1.25rem;">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone / WhatsApp</h4>
+                                <a href="tel:+919887159297" style="color: var(--text-primary); font-weight: 600; text-decoration: none;">+91 9887159297</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Phone / WhatsApp</h4>
-                            <p style="color: var(--text-primary); font-weight: 600;">+91 9887159297</p>
-                        </div>
-                    </a>
+                        <button class="btn-warm-outlined" data-copy="+919887159297" style="padding: 0.5rem 1rem; font-size: 0.8rem;" title="Copy phone number">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marked-alt"></i>
+                    <!-- Location with Live IST Clock -->
+                    <div class="contact-card" style="justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 1.25rem;">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Current Location</h4>
+                                <p style="color: var(--text-primary); font-weight: 600; margin: 0;">Jaipur, Rajasthan, India</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Current Location</h4>
-                            <p style="color: var(--text-primary); font-weight: 600;">Jaipur, Rajasthan, India (IST / UTC+5:30)</p>
+                        <div style="background: rgba(200, 155, 60, 0.12); border: 1px solid rgba(200, 155, 60, 0.3); border-radius: var(--radius-full); padding: 0.4rem 0.9rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="far fa-clock" style="color: var(--accent-gold);"></i>
+                            <span id="localTimeDisplay">Live Clock</span>
                         </div>
                     </div>
 

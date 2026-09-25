@@ -111,10 +111,40 @@
             <!-- Right: Seamless Interactive Character Stage -->
             <div class="luxury-hero-right reveal">
                 <div class="seamless-character-stage">
-                    <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10; background: rgba(44, 24, 16, 0.7); backdrop-filter: blur(8px); color: #fff; font-family: var(--font-mono); font-size: 0.7rem; padding: 0.3rem 0.75rem; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.05em; pointer-events: none;">
-                        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #00d26a; margin-right: 6px; vertical-align: middle;"></span>INTERACTIVE 360°
+                    <!-- Floating Tech Badges (Positioned on Flanks Away from Text) -->
+                    <div class="floating-badge badge-top-left">
+                        <i class="fab fa-python" style="color: #3776ab;"></i>
+                        <span>Python</span>
                     </div>
-                    <canvas id="characterCanvas" width="640" height="360"></canvas>
+                    <div class="floating-badge badge-mid-left">
+                        <i class="fas fa-brain" style="color: var(--accent-coral);"></i>
+                        <span>LangChain</span>
+                    </div>
+                    <div class="floating-badge badge-bottom-left">
+                        <i class="fas fa-database" style="color: #00758f;"></i>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="floating-badge badge-top-right">
+                        <i class="fas fa-robot" style="color: var(--accent-gold);"></i>
+                        <span>AI / RAG</span>
+                    </div>
+                    <div class="floating-badge badge-mid-right">
+                        <i class="fas fa-chart-line" style="color: #f2c811;"></i>
+                        <span>Power BI</span>
+                    </div>
+                    <div class="floating-badge badge-bottom-right">
+                        <i class="fas fa-bolt" style="color: #009688;"></i>
+                        <span>FastAPI</span>
+                    </div>
+
+                    <div class="canvas-frame-wrap">
+                        <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10; background: rgba(44, 24, 16, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.05em; pointer-events: none; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #00d26a; box-shadow: 0 0 8px #00d26a;"></span>
+                            <span id="charAngleDisplay">360° HEAD TRACKING</span>
+                        </div>
+                        <canvas id="characterCanvas" width="640" height="360"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

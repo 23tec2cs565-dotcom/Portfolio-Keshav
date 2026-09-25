@@ -541,12 +541,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const telemetryEl = document.getElementById('charAngleDisplay');
         const loaderEl = document.getElementById('characterLoader');
 
-        // Preload center neutral frame
+        // Preload center neutral frame & paint immediately for ZERO buffering delay
         const imgCenter = new Image();
         imgCenter.src = 'public/frames/center.webp';
         imgCenter.onload = () => {
             centerFrame = imgCenter;
             loadedCount++;
+            // Draw centerFrame immediately as initial state
+            ctx.drawImage(centerFrame, 0, 0, 640, 360);
+            characterCanvas.style.opacity = '1';
             checkPreloadStatus();
         };
 
@@ -640,8 +643,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetIsCenter && centerFrame && centerFrame.complete) {
                 ctx.drawImage(centerFrame, 0, 0, 640, 360);
+                if (telemetryEl) telemetryEl.textContent = 'EYE CONTACT • DIRECT';
             } else if (frames[frameIdx] && frames[frameIdx].complete) {
                 ctx.drawImage(frames[frameIdx], 0, 0, 640, 360);
+                if (telemetryEl) {
+                    const deg = Math.round((normalizedAngle * 180) / Math.PI);
+                    telemetryEl.textContent = `TRACKING • ${deg}°`;
+                }
             }
 
             requestAnimationFrame(renderCharacterLoop);
@@ -675,6 +683,207 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--mouse-y', y + '%');
         });
     });
+
+    // --------------------------------------------------------
+    // 18. ONE-CLICK CLIPBOARD COPY (Contact & Info)
+    // --------------------------------------------------------
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const textToCopy = btn.getAttribute('data-copy');
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const toast = document.getElementById('toast');
+                    if (toast) {
+                        const span = toast.querySelector('span');
+                        if (span) span.textContent = `Copied to clipboard: ${textToCopy}`;
+                        toast.classList.add('show');
+                        setTimeout(() => toast.classList.remove('show'), 3500);
+                    }
+                });
+            }
+        });
+    });
+
+    // --------------------------------------------------------
+    // 19. LIVE JAIPUR (IST / UTC+5:30) TIMEZONE CLOCK
+    // --------------------------------------------------------
+    const localClockEl = document.getElementById('localTimeDisplay');
+    if (localClockEl) {
+        function updateLocalClock() {
+            const now = new Date();
+            // Format to IST
+            const options = {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+            localClockEl.textContent = `${timeString} IST`;
+        }
+        updateLocalClock();
+        setInterval(updateLocalClock, 1000);
+    }
+
+    // --------------------------------------------------------
+    // 20. REAL-TIME SKILL SEARCH FILTER (Skills Page)
+    // --------------------------------------------------------
+    const skillSearchInput = document.getElementById('skillSearch');
+    if (skillSearchInput) {
+        const skillTags = document.querySelectorAll('.skill-tag');
+        const skillCategories = document.querySelectorAll('.skill-category');
+
+        skillSearchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (!query) {
+                skillTags.forEach(t => {
+                    t.style.opacity = '1';
+                    t.style.background = '';
+                    t.style.borderColor = '';
+                });
+                skillCategories.forEach(c => c.style.display = '');
+                return;
+            }
+
+            skillCategories.forEach(category => {
+                const tagsInCategory = category.querySelectorAll('.skill-tag');
+                let hasMatch = false;
+
+                tagsInCategory.forEach(tag => {
+                    const txt = tag.textContent.toLowerCase();
+                    if (txt.includes(query)) {
+                        tag.style.opacity = '1';
+                        tag.style.background = 'var(--accent-coral)';
+                        tag.style.color = '#fff';
+                        tag.style.borderColor = 'var(--accent-coral)';
+                        hasMatch = true;
+                    } else {
+                        tag.style.opacity = '0.3';
+                        tag.style.background = '';
+                        tag.style.color = '';
+                        tag.style.borderColor = '';
+                    }
+                });
+
+                category.style.display = hasMatch ? '' : 'none';
+            });
+        });
+    }
+
+    // --------------------------------------------------------
+    // 21. INTERACTIVE PROJECT DETAILS MODAL (Projects Page)
+    // --------------------------------------------------------
+    const projectModal = document.getElementById('projectModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    if (projectModal) {
+        const projectData = {
+            '01': {
+                title: 'LLM Customer Support Chatbot',
+                badge: 'AI & LangChain',
+                desc: 'Engineered an end-to-end conversational AI support bot leveraging LangChain, vector store embeddings, and strict prompt grounding to eliminate hallucinations.',
+                metrics: 'Reduces manual response turnaround by 65% with 98% accuracy on customer FAQ resolution.',
+                tech: ['LangChain', 'OpenAI API', 'RAG Architecture', 'FastAPI', 'ChromaDB', 'Python'],
+                github: 'https://github.com/Keshavsain1'
+            },
+            '02': {
+                title: 'Automated Leads Generation Engine',
+                badge: 'Automation & Data',
+                desc: 'Created an autonomous business prospect extraction pipeline that scrapes, normalizes, scores, and delivers verified leads directly into CRM systems.',
+                metrics: 'Identified and delivered 2,500+ validated enterprise leads with over 90% deliverability rating.',
+                tech: ['Python', 'RESTful APIs', 'SQL Modeling', 'Data Cleansing', 'Automation Workers'],
+                github: 'https://github.com/Keshavsain1'
+            },
+            '03': {
+                title: 'Graph Network Analysis Model',
+                badge: 'ML & Topology',
+                desc: 'Applied graph theory algorithms, community detection clusters, and centrality metrics to detect structural patterns across relational graph datasets.',
+                metrics: 'Processes complex topological networks with 10k+ nodes, visualizing community partitions in real time.',
+                tech: ['Python', 'NetworkX', 'Scikit-learn', 'Matplotlib', 'Graph Theory'],
+                github: 'https://github.com/Keshavsain1'
+            },
+            '04': {
+                title: 'OLA Ride Data Intelligence Dashboard',
+                badge: 'Business Intelligence',
+                desc: 'Designed a high-impact Power BI executive dashboard analyzing multi-year ride booking datasets to uncover booking surges, driver shortages, and cancellation triggers.',
+                metrics: 'Surfaced 5 critical driver churn bottlenecks and delivered actionable operational recommendations.',
+                tech: ['Power BI', 'DAX Calculations', 'SQL Analytics', 'Data Modeling', 'KPI Reporting'],
+                github: 'https://github.com/Keshavsain1'
+            },
+            '05': {
+                title: 'Health Insurance Cross-Sell Predictor',
+                badge: 'Predictive Modeling',
+                desc: 'Trained and validated machine learning classification models to determine consumer propensity for purchasing additional vehicle insurance policies.',
+                metrics: 'Achieved ROC-AUC of 0.86 with balanced precision-recall curves for marketing targeting.',
+                tech: ['Python', 'Scikit-learn', 'Pandas', 'Seaborn', 'Power BI'],
+                github: 'https://github.com/Keshavsain1'
+            },
+            '06': {
+                title: 'Enterprise Stock Management System',
+                badge: 'Full-Stack Software',
+                desc: 'Developed a robust inventory operations management system with atomic database transactions, SKU barcode lookups, and replenishment triggers.',
+                metrics: 'Eliminates inventory discrepancies with zero ledger errors across 5,000+ items.',
+                tech: ['Python', 'MySQL', 'CRUD Architecture', 'Relational DB Design'],
+                github: 'https://github.com/Keshavsain1'
+            }
+        };
+
+        document.querySelectorAll('.project-card[data-tilt]').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                // If clicked directly on external link, let link navigate
+                if (e.target.closest('a')) return;
+
+                const numEl = card.querySelector('.project-number');
+                if (!numEl) return;
+                const id = numEl.textContent.trim();
+                const data = projectData[id];
+                if (!data) return;
+
+                document.getElementById('modalTitle').textContent = data.title;
+                document.getElementById('modalBadge').textContent = data.badge;
+                document.getElementById('modalDesc').textContent = data.desc;
+                document.getElementById('modalMetrics').textContent = data.metrics;
+                document.getElementById('modalGithubLink').href = data.github;
+
+                const techContainer = document.getElementById('modalTechTags');
+                techContainer.innerHTML = '';
+                data.tech.forEach(t => {
+                    const span = document.createElement('span');
+                    span.className = 'skill-tag';
+                    span.textContent = t;
+                    techContainer.appendChild(span);
+                });
+
+                projectModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', () => {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
 });
 

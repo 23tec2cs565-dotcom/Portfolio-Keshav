@@ -347,6 +347,32 @@
         <span>Message sent successfully! I'll get back to you soon.</span>
     </div>
 
+    <!-- ========== PROJECT DETAILS MODAL ========== -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-dialog">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+            <span class="featured-tag" id="modalBadge">AI &amp; Machine Learning</span>
+            <h2 id="modalTitle" style="font-size: 2rem; color: var(--text-primary); margin: 0.75rem 0 1rem; font-family: var(--font-heading);">Project Title</h2>
+            <p id="modalDesc" style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">Project detailed overview.</p>
+            
+            <div style="background: var(--bg-section-alt); padding: 1.25rem; border-radius: var(--radius-md); border: var(--glass-border); margin-bottom: 1.5rem;">
+                <h4 style="font-size: 0.85rem; color: var(--accent-coral); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; font-family: var(--font-mono);">
+                    <i class="fas fa-chart-line"></i> Measurable Impact &amp; Results
+                </h4>
+                <p id="modalMetrics" style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600; margin: 0;"></p>
+            </div>
+
+            <h4 style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; font-family: var(--font-mono);">Technology Stack</h4>
+            <div id="modalTechTags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;"></div>
+
+            <div style="display: flex; gap: 1rem;">
+                <a id="modalGithubLink" href="#" target="_blank" rel="noopener" class="btn-warm-filled" style="flex: 1; justify-content: center;">
+                    <i class="fab fa-github"></i> Inspect Source Repository
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Script -->
     <script src="script.js"></script>
 </body>
