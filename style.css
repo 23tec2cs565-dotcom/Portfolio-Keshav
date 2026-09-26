@@ -1417,9 +1417,8 @@ section {
 }
 
 .project-card:hover {
-  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(232, 115, 74, 0.2);
+  border-color: rgba(232, 115, 74, 0.35);
 }
 
 .project-card:hover .project-card-glow {
@@ -2663,5 +2662,223 @@ textarea.form-control {
     padding: 2rem 1.5rem;
   }
 }
+
+/* ========================================================
+   23. ADVANCED 3D MULTI-LAYER & TOUCH INTERACTION FRAMEWORK
+   ======================================================== */
+
+/* Perspective Staging Containers */
+.perspective-container,
+.projects-grid,
+.about-stats,
+.cert-grid,
+.contact-grid,
+.skills-container,
+.timeline {
+  perspective: 1200px;
+}
+
+/* 3D Multi-Layer Card Foundation */
+[data-tilt],
+.tilt-card,
+.project-card,
+.stat-card,
+.cert-card,
+.contact-card,
+.featured-project {
+  position: relative;
+  transform-style: preserve-3d;
+  touch-action: pan-y; /* Non-blocking native vertical touch scrolling */
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Multi-Tier Depth Layers within 3D Elements */
+.layer-deep {
+  transform: translateZ(-20px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.layer-base {
+  transform: translateZ(0px);
+  transform-style: preserve-3d;
+}
+
+.layer-mid {
+  transform: translateZ(22px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.layer-front {
+  transform: translateZ(40px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.layer-float {
+  transform: translateZ(60px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Dynamic Specular Sheen (Holographic Light Pass) */
+.card-specular-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(circle 380px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(244, 165, 116, 0.2) 35%,
+    transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
+[data-tilt]:hover .card-specular-highlight,
+.tilt-card:hover .card-specular-highlight,
+.project-card:hover .card-specular-highlight,
+.stat-card:hover .card-specular-highlight,
+.cert-card:hover .card-specular-highlight,
+.touch-active .card-specular-highlight {
+  opacity: 1;
+}
+
+/* 3D Holographic Foil Effect for Certifications & Publications */
+.holographic-foil {
+  background: linear-gradient(135deg,
+    rgba(232, 115, 74, 0.08) 0%,
+    rgba(200, 155, 60, 0.16) 25%,
+    rgba(143, 166, 140, 0.16) 50%,
+    rgba(212, 117, 109, 0.16) 75%,
+    rgba(244, 165, 116, 0.08) 100%);
+  background-size: 250% 250%;
+  animation: holoSheen 10s ease infinite;
+}
+
+@keyframes holoSheen {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Magnetic Buttons with Spring Physics */
+.btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.btn-magnetic:active,
+.btn-warm-filled:active,
+.btn-warm-outlined:active {
+  transform: scale(0.96) translateZ(-4px) !important;
+}
+
+/* Tactile Haptic Ripple Wave */
+.haptic-ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.haptic-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 115, 74, 0.35) 0%, transparent 70%);
+  transform: scale(0);
+  animation: rippleExpand 0.55s ease-out forwards;
+  pointer-events: none;
+  z-index: 15;
+}
+
+@keyframes rippleExpand {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Interactive 3D Tech Orbit Canvas & Radar (Skills Page) */
+.tech-orbit-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(244, 165, 116, 0.12) 0%, rgba(250, 245, 240, 0) 70%);
+  box-shadow: inset 0 0 50px rgba(232, 115, 74, 0.08);
+}
+
+.tech-orbit-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.tech-orbit-canvas:active {
+  cursor: grabbing;
+}
+
+.orbit-center-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--gradient-warm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(232, 115, 74, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.orbit-center-core i {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  [data-tilt],
+  .tilt-card,
+  .project-card,
+  .stat-card,
+  .cert-card,
+  .contact-card {
+    transform: none !important;
+    transition: none !important;
+  }
+  .card-specular-highlight,
+  .holographic-foil {
+    animation: none !important;
+  }
+}
+
 
 

@@ -3,11 +3,9 @@ __pycache__/
 *.pyc
 
 # Raw intermediate video extraction frames (WebP frames in public/frames/ are production assets)
-public/analysis/frame_*.jpg
-public/analysis/optical_flow_*.jpg
-public/analysis/clean_flow_*.jpg
-public/analysis/contact_sheet.jpg
-public/analysis/frame_contact_sheet.jpg
+public/analysis/*.jpg
+!public/analysis/compass_128.jpg
+public/analysis/*.png
 
 # Temporary diagnostic scripts
 analyze_*.py

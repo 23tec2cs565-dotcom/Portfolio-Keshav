@@ -392,35 +392,514 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------
-    // 10. PROJECT CARD TILT EFFECT
+    // 10. ADVANCED 3D MULTI-LAYER & TOUCH INTERACTION ENGINE
+    // - Spring Damping / Exponential Lerp (zero-jitter settling)
+    // - Non-blocking Touch Interaction (touch-action: pan-y)
+    // - Dynamic Specular Light / Holographic Sheen
+    // - Gyroscope / DeviceOrientation Mobile Tilt Parallax
+    // - Multi-tier internal depth layer shifts
     // --------------------------------------------------------
-    const tiltCards = document.querySelectorAll('[data-tilt]');
+    function initMultiLayer3DEngine() {
+        const tiltCards = document.querySelectorAll('[data-tilt], .tilt-card, .project-card, .stat-card, .cert-card, .journey-card');
+        if (!tiltCards.length) return;
 
-    tiltCards.forEach((card) => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
+        const cardStates = [];
+        let gyroGamma = 0; // Device left-right tilt [-90, 90]
+        let gyroBeta = 0;  // Device front-back tilt [-180, 180]
+        let gyroActive = false;
 
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-            card.style.transition = 'box-shadow 0.3s ease';
+        // DeviceOrientation for mobile 3D tilt
+        if (window.DeviceOrientationEvent && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+            window.addEventListener('deviceorientation', (e) => {
+                if (e.gamma !== null && e.beta !== null) {
+                    gyroActive = true;
+                    gyroGamma = Math.max(-25, Math.min(25, e.gamma)) / 25; // [-1, 1]
+                    gyroBeta = Math.max(-25, Math.min(25, e.beta - 45)) / 25;
+                }
+            }, { passive: true });
+        }
 
-            const glow = card.querySelector('.project-card-glow');
-            if (glow) {
-                glow.style.left = `${x - card.offsetWidth}px`;
-                glow.style.top = `${y - card.offsetHeight}px`;
+        tiltCards.forEach((card) => {
+            // Append dynamic specular highlight layer if not already present
+            let specular = card.querySelector('.card-specular-highlight');
+            if (!specular) {
+                specular = document.createElement('div');
+                specular.className = 'card-specular-highlight';
+                card.appendChild(specular);
             }
+
+            const state = {
+                el: card,
+                specular: specular,
+                currentRotX: 0,
+                currentRotY: 0,
+                targetRotX: 0,
+                targetRotY: 0,
+                currentZ: 0,
+                targetZ: 0,
+                currentMouseX: 50,
+                currentMouseY: 50,
+                targetMouseX: 50,
+                targetMouseY: 50,
+                isHovered: false,
+                isTouch: false,
+                rect: null,
+                layers: {
+                    deep: card.querySelectorAll('.layer-deep'),
+                    mid: card.querySelectorAll('.layer-mid'),
+                    front: card.querySelectorAll('.layer-front'),
+                    float: card.querySelectorAll('.layer-float')
+                }
+            };
+
+            function updateRect() {
+                state.rect = card.getBoundingClientRect();
+            }
+
+            // Mouse Events
+            card.addEventListener('mouseenter', () => {
+                state.isHovered = true;
+                state.isTouch = false;
+                state.targetZ = 12;
+                updateRect();
+            });
+
+            card.addEventListener('mousemove', (e) => {
+                if (!state.rect) updateRect();
+                const rect = state.rect;
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const normX = Math.max(-1, Math.min(1, ((x / rect.width) * 2) - 1));
+                const normY = Math.max(-1, Math.min(1, ((y / rect.height) * 2) - 1));
+
+                state.targetRotX = -normY * 9.5; // Max 9.5 deg
+                state.targetRotY = normX * 9.5;
+                state.targetMouseX = Math.round((x / rect.width) * 100);
+                state.targetMouseY = Math.round((y / rect.height) * 100);
+
+                const glow = card.querySelector('.project-card-glow');
+                if (glow) {
+                    glow.style.left = `${x - card.offsetWidth}px`;
+                    glow.style.top = `${y - card.offsetHeight}px`;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                state.isHovered = false;
+                state.targetRotX = 0;
+                state.targetRotY = 0;
+                state.targetZ = 0;
+                state.targetMouseX = 50;
+                state.targetMouseY = 50;
+            });
+
+            // Touch Events (passive, non-blocking native scroll)
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            card.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    state.isTouch = true;
+                    state.isHovered = true;
+                    state.targetZ = 8;
+                    card.classList.add('touch-active');
+                    updateRect();
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            card.addEventListener('touchmove', (e) => {
+                if (!state.isTouch || e.touches.length !== 1 || !state.rect) return;
+                const touch = e.touches[0];
+                const dx = touch.clientX - touchStartX;
+                const dy = touch.clientY - touchStartY;
+
+                // Calibrated touch sensitivity (max 6 deg tilt for natural ergonomic reading)
+                const normX = Math.max(-1, Math.min(1, dx / (state.rect.width * 0.45)));
+                const normY = Math.max(-1, Math.min(1, dy / (state.rect.height * 0.45)));
+
+                state.targetRotX = -normY * 6;
+                state.targetRotY = normX * 6;
+                state.targetMouseX = Math.round(50 + normX * 40);
+                state.targetMouseY = Math.round(50 + normY * 40);
+            }, { passive: true });
+
+            card.addEventListener('touchend', () => {
+                state.isTouch = false;
+                state.isHovered = false;
+                state.targetRotX = 0;
+                state.targetRotY = 0;
+                state.targetZ = 0;
+                state.targetMouseX = 50;
+                state.targetMouseY = 50;
+                card.classList.remove('touch-active');
+            }, { passive: true });
+
+            card.addEventListener('touchcancel', () => {
+                state.isTouch = false;
+                state.isHovered = false;
+                state.targetRotX = 0;
+                state.targetRotY = 0;
+                state.targetZ = 0;
+                card.classList.remove('touch-active');
+            }, { passive: true });
+
+            cardStates.push(state);
         });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-            card.style.transition = 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        // Window resize debounced rect cache refresh
+        window.addEventListener('resize', () => {
+            cardStates.forEach(s => { s.rect = s.el.getBoundingClientRect(); });
+        }, { passive: true });
+
+        // Central High-Performance 60/120 FPS RAF Physics Loop
+        let lastRenderTime = performance.now();
+        function render3DLoop(now) {
+            const dt = Math.min((now - lastRenderTime) / 1000, 0.1);
+            lastRenderTime = now;
+
+            for (let i = 0; i < cardStates.length; i++) {
+                const s = cardStates[i];
+
+                if (gyroActive && !s.isHovered && !s.isTouch) {
+                    const r = s.rect || s.el.getBoundingClientRect();
+                    if (r.bottom >= 0 && r.top <= window.innerHeight) {
+                        s.targetRotX = -gyroBeta * 4;
+                        s.targetRotY = gyroGamma * 4;
+                        s.targetMouseX = 50 + gyroGamma * 30;
+                        s.targetMouseY = 50 + gyroBeta * 30;
+                    }
+                }
+
+                // Spring Lerp interpolation
+                const lerpFactor = s.isTouch ? 0.09 : 0.12;
+                s.currentRotX += (s.targetRotX - s.currentRotX) * lerpFactor;
+                s.currentRotY += (s.targetRotY - s.currentRotY) * lerpFactor;
+                s.currentZ += (s.targetZ - s.currentZ) * lerpFactor;
+                s.currentMouseX += (s.targetMouseX - s.currentMouseX) * lerpFactor;
+                s.currentMouseY += (s.targetMouseY - s.currentMouseY) * lerpFactor;
+
+                const isMoving = Math.abs(s.currentRotX - s.targetRotX) > 0.02 ||
+                                 Math.abs(s.currentRotY - s.targetRotY) > 0.02 ||
+                                 Math.abs(s.currentZ - s.targetZ) > 0.1;
+
+                if (isMoving || s.isHovered || s.isTouch || (gyroActive && (Math.abs(s.currentRotX) > 0.05 || Math.abs(s.currentRotY) > 0.05))) {
+                    s.el.style.transform = `perspective(1100px) rotateX(${s.currentRotX.toFixed(2)}deg) rotateY(${s.currentRotY.toFixed(2)}deg) translateZ(${s.currentZ.toFixed(1)}px)`;
+                    s.el.style.setProperty('--mouse-x', `${s.currentMouseX.toFixed(1)}%`);
+                    s.el.style.setProperty('--mouse-y', `${s.currentMouseY.toFixed(1)}%`);
+
+                    // Differential Parallax shift for internal layers
+                    const shiftX = (s.currentRotY * 0.4).toFixed(1);
+                    const shiftY = (-s.currentRotX * 0.4).toFixed(1);
+
+                    if (s.layers.front.length) {
+                        s.layers.front.forEach(fl => {
+                            fl.style.transform = `translate3d(${shiftX}px, ${shiftY}px, 36px)`;
+                        });
+                    }
+                    if (s.layers.float.length) {
+                        s.layers.float.forEach(fl => {
+                            fl.style.transform = `translate3d(${(shiftX * 1.5).toFixed(1)}px, ${(shiftY * 1.5).toFixed(1)}px, 55px)`;
+                        });
+                    }
+                    if (s.layers.deep.length) {
+                        s.layers.deep.forEach(dl => {
+                            dl.style.transform = `translate3d(${(-shiftX * 0.5).toFixed(1)}px, ${(-shiftY * 0.5).toFixed(1)}px, -18px)`;
+                        });
+                    }
+                } else if (!s.isHovered && Math.abs(s.currentRotX) < 0.02 && Math.abs(s.currentRotY) < 0.02 && Math.abs(s.currentZ) < 0.1) {
+                    if (s.el.style.transform !== '') {
+                        s.el.style.transform = '';
+                        if (s.layers.front.length) s.layers.front.forEach(fl => { fl.style.transform = ''; });
+                        if (s.layers.float.length) s.layers.float.forEach(fl => { fl.style.transform = ''; });
+                        if (s.layers.deep.length) s.layers.deep.forEach(dl => { dl.style.transform = ''; });
+                    }
+                }
+            }
+
+            requestAnimationFrame(render3DLoop);
+        }
+
+        requestAnimationFrame(render3DLoop);
+    }
+    initMultiLayer3DEngine();
+
+    // --------------------------------------------------------
+    // 10B. MAGNETIC BUTTONS (Spring Pull on Hover)
+    // --------------------------------------------------------
+    function initMagneticButtons() {
+        const magneticBtns = document.querySelectorAll('.btn-magnetic, .btn-warm-filled, .btn-warm-outlined, .social-icon-btn');
+        if (!magneticBtns.length) return;
+
+        magneticBtns.forEach(btn => {
+            let currentX = 0, currentY = 0;
+            let targetX = 0, targetY = 0;
+            let isHovered = false;
+
+            btn.addEventListener('mouseenter', () => {
+                isHovered = true;
+            });
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                targetX = (x / (rect.width / 2)) * 7;
+                targetY = (y / (rect.height / 2)) * 7;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                isHovered = false;
+                targetX = 0;
+                targetY = 0;
+            });
+
+            function renderMagnet() {
+                currentX += (targetX - currentX) * 0.18;
+                currentY += (targetY - currentY) * 0.18;
+
+                if (isHovered || Math.abs(currentX) > 0.05 || Math.abs(currentY) > 0.05) {
+                    btn.style.transform = `translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+                } else if (!isHovered && btn.style.transform !== '') {
+                    btn.style.transform = '';
+                }
+                requestAnimationFrame(renderMagnet);
+            }
+            requestAnimationFrame(renderMagnet);
         });
-    });
+    }
+    initMagneticButtons();
+
+    // --------------------------------------------------------
+    // 10C. TACTILE HAPTIC RIPPLE FEEDBACK
+    // --------------------------------------------------------
+    function initTactileFeedback() {
+        const interactiveElements = document.querySelectorAll('.btn, .btn-warm-filled, .btn-warm-outlined, .skill-tag, .filter-btn, .pill-nav-link');
+        interactiveElements.forEach(el => {
+            el.addEventListener('click', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = (e.clientX || (rect.left + rect.width / 2)) - rect.left;
+                const y = (e.clientY || (rect.top + rect.height / 2)) - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.className = 'haptic-ripple';
+                const size = Math.max(rect.width, rect.height) * 1.5;
+                ripple.style.width = `${size}px`;
+                ripple.style.height = `${size}px`;
+                ripple.style.left = `${x - size / 2}px`;
+                ripple.style.top = `${y - size / 2}px`;
+
+                el.style.position = el.style.position || 'relative';
+                el.style.overflow = 'hidden';
+                el.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    }
+    initTactileFeedback();
+
+    // --------------------------------------------------------
+    // 10D. INTERACTIVE 3D TECH ORBIT SPHERE (Skills Page)
+    // --------------------------------------------------------
+    function initInteractiveTechOrbit() {
+        const canvas = document.getElementById('techOrbitCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        
+        function resizeOrbitCanvas() {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+        resizeOrbitCanvas();
+        window.addEventListener('resize', resizeOrbitCanvas);
+
+        const techItems = [
+            { name: 'Python', color: '#3776ab', icon: '🐍' },
+            { name: 'LangChain', color: '#e8734a', icon: '🦜' },
+            { name: 'OpenAI', color: '#10a37f', icon: '🤖' },
+            { name: 'FastAPI', color: '#009688', icon: '⚡' },
+            { name: 'Power BI', color: '#c89b3c', icon: '📊' },
+            { name: 'SQL', color: '#2c1810', icon: '🗄️' },
+            { name: 'Docker', color: '#2496ed', icon: '🐳' },
+            { name: 'Gemini API', color: '#e8734a', icon: '✨' },
+            { name: 'Pandas', color: '#150458', icon: '🐼' },
+            { name: 'Scikit-learn', color: '#f7931e', icon: '⚙️' },
+            { name: 'n8n', color: '#ea4b71', icon: '🔄' },
+            { name: 'RAG', color: '#8fa68c', icon: '🧠' }
+        ];
+
+        const getRadius = () => canvas.offsetWidth * 0.38;
+        const points = [];
+        const n = techItems.length;
+        for (let i = 0; i < n; i++) {
+            const phi = Math.acos(1 - 2 * (i + 0.5) / n);
+            const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
+            points.push({
+                uX: Math.cos(theta) * Math.sin(phi),
+                uY: Math.sin(theta) * Math.sin(phi),
+                uZ: Math.cos(phi),
+                x: 0, y: 0, z: 0,
+                item: techItems[i]
+            });
+        }
+
+        let rotX = 0.005;
+        let rotY = 0.005;
+        let isDragging = false;
+        let startX = 0, startY = 0;
+
+        function rotatePoint(p, rx, ry) {
+            const cosY = Math.cos(ry);
+            const sinY = Math.sin(ry);
+            const x1 = p.x * cosY + p.z * sinY;
+            const z1 = -p.x * sinY + p.z * cosY;
+
+            const cosX = Math.cos(rx);
+            const sinX = Math.sin(rx);
+            const y2 = p.y * cosX - z1 * sinX;
+            const z2 = p.y * sinX + z1 * cosX;
+
+            p.x = x1;
+            p.y = y2;
+            p.z = z2;
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            rotY = dx * 0.0003;
+            rotX = -dy * 0.0003;
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!isDragging || e.touches.length !== 1) return;
+            const dx = e.touches[0].clientX - startX;
+            const dy = e.touches[0].clientY - startY;
+            rotY = dx * 0.0004;
+            rotX = -dy * 0.0004;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        canvas.addEventListener('touchend', () => { isDragging = false; }, { passive: true });
+
+        let initializedRadius = false;
+
+        function drawOrbit() {
+            const w = canvas.offsetWidth;
+            const h = canvas.offsetHeight;
+            if (!w || !h) {
+                requestAnimationFrame(drawOrbit);
+                return;
+            }
+
+            const radius = getRadius();
+            if (!initializedRadius) {
+                points.forEach(p => {
+                    p.x = p.uX * radius;
+                    p.y = p.uY * radius;
+                    p.z = p.uZ * radius;
+                });
+                initializedRadius = true;
+            }
+
+            ctx.clearRect(0, 0, w, h);
+
+            if (!isDragging) {
+                rotX += (0.002 - rotX) * 0.04;
+                rotY += (0.003 - rotY) * 0.04;
+            }
+
+            points.forEach(p => rotatePoint(p, rotX, rotY));
+            const sortedPoints = [...points].sort((a, b) => a.z - b.z);
+
+            const centerX = w / 2;
+            const centerY = h / 2;
+
+            // Connecting lines
+            for (let i = 0; i < sortedPoints.length; i++) {
+                for (let j = i + 1; j < sortedPoints.length; j++) {
+                    const dist = Math.hypot(sortedPoints[i].x - sortedPoints[j].x, sortedPoints[i].y - sortedPoints[j].y, sortedPoints[i].z - sortedPoints[j].z);
+                    if (dist < radius * 0.95) {
+                        const alpha = (1 - dist / (radius * 0.95)) * 0.22 * ((sortedPoints[i].z + radius) / (2 * radius));
+                        ctx.strokeStyle = `rgba(232, 115, 74, ${Math.max(0, alpha)})`;
+                        ctx.beginPath();
+                        ctx.moveTo(centerX + sortedPoints[i].x, centerY + sortedPoints[i].y);
+                        ctx.lineTo(centerX + sortedPoints[j].x, centerY + sortedPoints[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw badges
+            sortedPoints.forEach(p => {
+                const scale = Math.max(0.45, (p.z + radius * 1.5) / (radius * 2.5));
+                const alpha = Math.max(0.25, (p.z + radius) / (2 * radius));
+                const px = centerX + p.x;
+                const py = centerY + p.y;
+
+                ctx.save();
+                ctx.translate(px, py);
+                ctx.scale(scale, scale);
+                ctx.globalAlpha = alpha;
+
+                const text = `${p.item.icon} ${p.item.name}`;
+                ctx.font = '600 12px "Space Grotesk", sans-serif';
+                const textWidth = ctx.measureText(text).width;
+                const pillH = 26;
+                const pillW = textWidth + 20;
+
+                ctx.fillStyle = 'rgba(255, 250, 245, 0.95)';
+                ctx.strokeStyle = p.item.color;
+                ctx.lineWidth = 1.5;
+                ctx.shadowColor = 'rgba(200, 155, 120, 0.2)';
+                ctx.shadowBlur = 8;
+
+                ctx.beginPath();
+                ctx.roundRect(-pillW / 2, -pillH / 2, pillW, pillH, 13);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#2c1810';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, 0, 0);
+
+                ctx.restore();
+            });
+
+            requestAnimationFrame(drawOrbit);
+        }
+
+        drawOrbit();
+    }
+    initInteractiveTechOrbit();
 
     // --------------------------------------------------------
     // 11. BACK TO TOP
